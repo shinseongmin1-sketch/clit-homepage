@@ -10,19 +10,6 @@ function App() {
     const handleHashChange = () => {
       const hash = window.location.hash || '#home';
       setCurrentPath(hash);
-      
-      // 페이지 전환 후 특정 섹션으로 스크롤 처리
-      setTimeout(() => {
-        const elementId = hash.split('-')[1]; // #business-network -> network
-        if (elementId) {
-          const element = document.getElementById(elementId);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        } else {
-          window.scrollTo(0, 0);
-        }
-      }, 100);
     };
 
     window.addEventListener('hashchange', handleHashChange);
@@ -30,6 +17,25 @@ function App() {
 
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  // currentPath가 바뀐 후 React 리렌더링이 완료되면 스크롤
+  useEffect(() => {
+    const elementId = currentPath.replace('#', ''); // #business-ni -> business-ni
+    if (!elementId || elementId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    // 리렌더링 후 DOM에 요소가 생길 때까지 대기
+    const tryScroll = (attempts = 0) => {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (attempts < 10) {
+        setTimeout(() => tryScroll(attempts + 1), 50);
+      }
+    };
+    setTimeout(() => tryScroll(), 50);
+  }, [currentPath]);
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
