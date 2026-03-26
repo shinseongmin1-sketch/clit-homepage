@@ -1,7 +1,12 @@
 // src/App.tsx
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
+
   return (
     <div className="App">
       {/* Header */}
@@ -9,12 +14,40 @@ function App() {
         <div className="container">
           <div className="logo">CLIT <span>씨엘아이티(주)</span></div>
           <nav className="nav-links">
-            <a href="#about">회사소개</a>
-            <a href="#business">비즈니스</a>
-            <a href="#solutions">솔루션</a>
-            <a href="#ir">IR</a>
-            <a href="#recruitment">채용안내</a>
-            <a href="#contact">고객문의</a>
+            <div className="nav-item">
+              <a href="#about">회사소개</a>
+            </div>
+            <div className="nav-item">
+              <a href="#business">비지니스</a>
+              <div className="dropdown">
+                <a href="#business-1">네트워크 통합</a>
+                <a href="#business-2">통합보안 구축</a>
+                <a href="#business-3">통합 유지보수</a>
+                <a href="#business-4">인프라 서비스</a>
+              </div>
+            </div>
+            <div className="nav-item">
+              <a href="#products">제품소개</a>
+              <div className="dropdown">
+                <a href="#products-1">네트워크</a>
+                <a href="#products-2">보안</a>
+                <a href="#products-3">서버 스토리지</a>
+                <a href="#products-4">솔루션</a>
+              </div>
+            </div>
+            <div className="nav-item">
+              <a href="#partners">파트너·고객사</a>
+              <div className="dropdown">
+                <a href="#partners-1">파트너</a>
+                <a href="#partners-2">고객사</a>
+              </div>
+            </div>
+            <div className="nav-item">
+              <a href="#recruitment">채용정보</a>
+            </div>
+            <div className="nav-item">
+              <a href="#contact">고객문의</a>
+            </div>
           </nav>
         </div>
       </header>
@@ -24,8 +57,8 @@ function App() {
         <div className="container">
           <div className="hero-content">
             <h1>연결의 가치를 더하는<br />네트워크 파트너 씨엘아이티(주)</h1>
-            <p>설계부터 유지보수까지, 고객의 비즈니스 인프라를 위한 최적의 엔드 투 엔드 솔루션을 제공합니다.</p>
-            <a href="#contact" className="cta-button">상담 신청하기</a>
+            <p>2014년 설립 이래 최상의 기술력으로 고객의 비즈니스 인프라를 위한 최적의 엔드 투 엔드 솔루션을 제공합니다.</p>
+            <button onClick={toggleModal} className="cta-button">상담 신청하기</button>
           </div>
         </div>
       </section>
@@ -60,7 +93,6 @@ function App() {
               </div>
             </div>
             <div className="about-visual">
-              {/* 여기에 실제 이미지가 들어갈 수 있습니다. 프로토타입용으로 스타일로 대체 */}
               <div style={{width: '100%', height: '350px', background: '#e9ecef', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#adb5bd', fontSize: '18px'}}>
                 Corporate Visual Image
               </div>
@@ -114,10 +146,55 @@ function App() {
               📞 051-501-3735 | 3734
             </div>
             <p>📧 clit@clit.co.kr</p>
-            <button className="cta-button" style={{marginTop: '20px', border: 'none'}}>견적 문의하기</button>
+            <button onClick={toggleModal} className="cta-button" style={{marginTop: '20px', border: 'none'}}>견적 문의하기</button>
           </div>
         </div>
       </section>
+
+      {/* Inquiry Modal */}
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={toggleModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <span className="modal-close" onClick={toggleModal}>&times;</span>
+            <div className="modal-header">
+              <h2>견적 및 기술 문의</h2>
+              <p>문의를 남겨주시면 담당자가 신속히 연락드리겠습니다.</p>
+            </div>
+            <form className="inquiry-form" onSubmit={(e) => { e.preventDefault(); alert('문의가 성공적으로 접수되었습니다. 담당자가 확인 후 연락드리겠습니다.'); toggleModal(); }}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>성함 / 담당자명</label>
+                  <input type="text" placeholder="성함을 입력해주세요" required />
+                </div>
+                <div className="form-group">
+                  <label>연락처</label>
+                  <input type="tel" placeholder="010-0000-0000" required />
+                </div>
+              </div>
+              <div className="form-group">
+                <label>기업 / 기관명</label>
+                <input type="text" placeholder="회사명을 입력해주세요" required />
+              </div>
+              <div className="form-group">
+                <label>문의 유형</label>
+                <select required>
+                  <option value="">유형을 선택하세요</option>
+                  <option value="design">네트워크 통합 구축/설계</option>
+                  <option value="security">정보보안 솔루션 도입</option>
+                  <option value="maintenance">정기 유지보수 서비스</option>
+                  <option value="equipment">Cisco/Juniper 장비 견적</option>
+                  <option value="etc">기타 IT 서비스 문의</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>문의 상세 내용</label>
+                <textarea rows={5} placeholder="상세한 요구사항이나 현재 인프라 환경을 설명해주세요."></textarea>
+              </div>
+              <button type="submit" className="submit-btn">문의하기 제출</button>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Footer */}
       <footer className="footer">
