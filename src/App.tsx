@@ -562,8 +562,6 @@ function App() {
               <a href="#recruitment">채용정보</a>
               <div className="dropdown">
                 <a href="#recruitment-jobs">채용공고</a>
-                <a href="#recruitment-talent">인재상</a>
-                <a href="#recruitment-benefits">복리후생</a>
               </div>
             </div>
             <div className="nav-item">
