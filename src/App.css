@@ -920,6 +920,14 @@ button {
   gap: 20px;
 }
 
+.job-meta {
+  font-size: 13px;
+  color: #666;
+  background: #f4f4f4;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
 .job-deadline {
   font-size: 14px;
   color: #aaa;

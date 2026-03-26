@@ -327,6 +327,8 @@ function App() {
         tag: 'NETWORK',
         tagColor: '#007BFF',
         deadline: '채용 시 마감',
+        location: '부산',
+        headcount: '기술지원 0명',
         tasks: ['기업 네트워크 인프라 설계 및 구축', 'LAN/WAN 환경 구성 및 최적화', '네트워크 장애 분석 및 긴급 복구', '고객사 기술지원 및 현장 엔지니어링'],
         requirements: ['Cisco / Juniper / Aruba 장비 운용 경험', 'CCNA 이상 자격증 우대', '네트워크 관련 학과 졸업 또는 유사 경력', '성실하고 팀워크를 중시하는 분'],
       },
@@ -430,6 +432,8 @@ function App() {
                       </div>
                     </div>
                     <div className="job-header-right">
+                      <span className="job-meta">📍 {job.location}</span>
+                      <span className="job-meta">👥 {job.headcount}</span>
                       <span className="job-deadline">{job.deadline}</span>
                       <span className="job-toggle">{activeJob === job.id ? '▲' : '▼'}</span>
                     </div>
