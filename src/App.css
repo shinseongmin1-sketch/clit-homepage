@@ -655,6 +655,375 @@ button {
   text-decoration: underline;
 }
 
+/* ===== Recruitment Page ===== */
+.recruit-page {
+  padding-top: 80px;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.recruit-hero {
+  background: linear-gradient(135deg, #0A192F 0%, #0d2a4a 60%, #0f3460 100%);
+  padding: 80px 0 90px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.recruit-hero::before {
+  content: '';
+  position: absolute;
+  right: -100px;
+  top: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,123,255,0.15) 0%, transparent 70%);
+}
+
+.recruit-hero-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(0,123,255,0.25);
+  border: 1px solid rgba(0,123,255,0.4);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #60aaff;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.recruit-hero h1 {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.recruit-hero p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.75);
+  max-width: 560px;
+}
+
+.recruit-body {
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.recruit-section {
+  margin-bottom: 100px;
+}
+
+/* 인재상 */
+.talent-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.talent-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 24px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+  transition: var(--transition);
+}
+
+.talent-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.1);
+}
+
+.talent-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.talent-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.talent-card p {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.7;
+}
+
+/* 복리후생 */
+.recruit-benefits-wrap {
+  background: #fff;
+  border-radius: 24px;
+  padding: 60px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.benefit-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  background: var(--bg-color);
+  border-radius: 14px;
+  border: 1px solid #ebebeb;
+  transition: var(--transition);
+}
+
+.benefit-card:hover {
+  border-color: var(--accent-color);
+  background: #f0f7ff;
+}
+
+.benefit-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.benefit-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 6px;
+}
+
+.benefit-card p {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.6;
+}
+
+/* 채용 프로세스 */
+.process-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  background: var(--primary-color);
+  border-radius: 20px;
+  padding: 44px 40px;
+}
+
+.process-step {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.step-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-left: 12px;
+}
+
+.step-arrow {
+  font-size: 28px;
+  color: rgba(255,255,255,0.3);
+  margin: 0 20px;
+  line-height: 1;
+}
+
+/* 채용공고 */
+.job-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.job-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e8e8e8;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: var(--transition);
+}
+
+.job-card.open {
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 24px rgba(0,123,255,0.1);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 32px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.job-header:hover {
+  background: #fafafa;
+}
+
+.job-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.job-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.job-header-left h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.job-type {
+  font-size: 13px;
+  color: #888;
+  font-weight: 500;
+}
+
+.job-header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.job-deadline {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.job-toggle {
+  font-size: 14px;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.job-detail {
+  padding: 32px;
+  border-top: 1px solid #f0f0f0;
+  background: #fafcff;
+}
+
+.job-detail-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 28px;
+}
+
+.job-detail h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+}
+
+.job-detail ul {
+  padding-left: 0;
+}
+
+.job-detail ul li {
+  font-size: 14px;
+  color: #555;
+  padding: 6px 0 6px 18px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.job-detail ul li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  color: var(--accent-color);
+  font-weight: 900;
+  font-size: 18px;
+  top: 2px;
+}
+
+.apply-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--accent-color);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+.apply-btn:hover {
+  background: #0056b3;
+  transform: translateX(4px);
+}
+
+.recruit-notice {
+  margin-top: 32px;
+  padding: 24px 28px;
+  background: #f0f4f8;
+  border-left: 4px solid var(--accent-color);
+  border-radius: 0 10px 10px 0;
+}
+
+.recruit-notice p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.recruit-notice p:last-child { margin-bottom: 0; }
+
+@media (max-width: 992px) {
+  .talent-grid { grid-template-columns: repeat(2, 1fr); }
+  .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .recruit-benefits-wrap { padding: 40px 30px; }
+  .job-detail-cols { grid-template-columns: 1fr; gap: 24px; }
+  .process-steps { gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .step-arrow { display: none; }
+}
+
+@media (max-width: 640px) {
+  .recruit-hero h1 { font-size: 34px; }
+  .talent-grid { grid-template-columns: 1fr 1fr; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .job-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .nav-links {
