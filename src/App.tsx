@@ -1,57 +1,25 @@
 // src/App.tsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState(window.location.hash || '#home');
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentPath(window.location.hash || '#home');
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
-  return (
-    <div className="App">
-      {/* Header */}
-      <header className="header">
-        <div className="container">
-          <div className="logo">CLIT <span>씨엘아이티(주)</span></div>
-          <nav className="nav-links">
-            <div className="nav-item">
-              <a href="#about">회사소개</a>
-            </div>
-            <div className="nav-item">
-              <a href="#business">비지니스</a>
-              <div className="dropdown">
-                <a href="#business-1">네트워크 통합</a>
-                <a href="#business-2">통합보안 구축</a>
-                <a href="#business-3">통합 유지보수</a>
-                <a href="#business-4">인프라 서비스</a>
-              </div>
-            </div>
-            <div className="nav-item">
-              <a href="#products">제품소개</a>
-              <div className="dropdown">
-                <a href="#products-1">네트워크</a>
-                <a href="#products-2">보안</a>
-                <a href="#products-3">서버 스토리지</a>
-                <a href="#products-4">솔루션</a>
-              </div>
-            </div>
-            <div className="nav-item">
-              <a href="#partners">파트너·고객사</a>
-              <div className="dropdown">
-                <a href="#partners-1">파트너</a>
-                <a href="#partners-2">고객사</a>
-              </div>
-            </div>
-            <div className="nav-item">
-              <a href="#recruitment">채용정보</a>
-            </div>
-            <div className="nav-item">
-              <a href="#contact">고객문의</a>
-            </div>
-          </nav>
-        </div>
-      </header>
-
+  // 메인 페이지 컴포넌트
+  const MainContent = () => (
+    <>
       {/* Hero Section */}
       <section id="home" className="hero">
         <div className="container">
@@ -93,9 +61,10 @@ function App() {
               </div>
             </div>
             <div className="about-visual">
-              <div style={{width: '100%', height: '350px', background: '#e9ecef', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#adb5bd', fontSize: '18px'}}>
-                Corporate Visual Image
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+                alt="씨엘아이티 신뢰를 상징하는 현대적 건물"
+              />
             </div>
           </div>
         </div>
@@ -150,6 +119,93 @@ function App() {
           </div>
         </div>
       </section>
+    </>
+  );
+
+  // 오시는 길 페이지 컴포넌트
+  const MapPage = () => (
+    <div className="map-page container">
+      <div className="section-title">
+        <h2>오시는 길</h2>
+        <div className="bar"></div>
+      </div>
+      
+      <div className="map-container">
+        {/* Google Maps Embed (제공 좌표 35.207428, 129.070233 반영) */}
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3260.672!2d129.068!3d35.207428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDEyJzI2LjciTiAxMjnCsDA0JzEyLjgiRQ!5e0!3m2!1sko!2skr!4v1711430000000!5m2!1sko!2skr" 
+          width="100%" 
+          height="100%" 
+          style={{ border: 0 }} 
+          allowFullScreen={true} 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+          title="씨엘아이티 오시는길"
+        ></iframe>
+      </div>
+
+      <div className="address-info">
+        <h3>사무실 위치</h3>
+        <p><strong>주소:</strong> 부산광역시 동래구 충렬대로 84 영남빌딩 303호 (미남역 10번 출구 바로 앞)</p>
+        <p><strong>전화:</strong> 051-501-3735 / 3734</p>
+        <p><strong>이메일:</strong> clit@clit.co.kr</p>
+        <a href="#home" className="back-home">홈으로 돌아가기</a>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="App">
+      {/* Header */}
+      <header className="header">
+        <div className="container">
+          <div className="logo"><a href="#home">CLIT <span>씨엘아이티(주)</span></a></div>
+          <nav className="nav-links">
+            <div className="nav-item">
+              <a href="#about">회사소개</a>
+              <div className="dropdown">
+                <a href="#about">회사소개</a>
+                <a href="#home">연혁</a>
+                <a href="#location">오시는 길</a>
+              </div>
+            </div>
+            <div className="nav-item">
+              <a href="#business">비지니스</a>
+              <div className="dropdown">
+                <a href="#business-1">네트워크 통합</a>
+                <a href="#business-2">통합보안 구축</a>
+                <a href="#business-3">통합 유지보수</a>
+                <a href="#business-4">인프라 서비스</a>
+              </div>
+            </div>
+            <div className="nav-item">
+              <a href="#products">제품소개</a>
+              <div className="dropdown">
+                <a href="#products-1">네트워크</a>
+                <a href="#products-2">보안</a>
+                <a href="#products-3">서버 스토리지</a>
+                <a href="#products-4">솔루션</a>
+              </div>
+            </div>
+            <div className="nav-item">
+              <a href="#partners">파트너·고객사</a>
+              <div className="dropdown">
+                <a href="#partners-1">파트너</a>
+                <a href="#partners-2">고객사</a>
+              </div>
+            </div>
+            <div className="nav-item">
+              <a href="#recruitment">채용정보</a>
+            </div>
+            <div className="nav-item">
+              <a href="#contact">고객문의</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      {/* 라우팅 처리 */}
+      {currentPath === '#location' ? <MapPage /> : <MainContent />}
 
       {/* Inquiry Modal */}
       {isModalOpen && (
@@ -200,7 +256,7 @@ function App() {
       <footer className="footer">
         <div className="container">
           <p>© 2026 씨엘아이티(주) (CLIT). All Rights Reserved.</p>
-          <p style={{marginTop: '10px', fontSize: '12px'}}>부산광역시 동래구 영남빌딩 3층 | 대표이사: 최혁원 | 사업자등록번호: 123-45-67890</p>
+          <p style={{marginTop: '10px', fontSize: '12px'}}>부산광역시 동래구 충렬대로 84 영남빌딩 303호 | 대표이사: 최혁원 | 사업자등록번호: 615-86-14557</p>
         </div>
       </footer>
     </div>
