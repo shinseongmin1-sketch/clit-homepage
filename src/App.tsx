@@ -116,7 +116,7 @@ function App() {
             <div className="service-card">
               <div className="service-icon">🛠️</div>
               <h3>유지보수</h3>
-              <p>정기 점검 및 실시간 모니터링을 통해 장애를 미연에 방지하고 신속하게 대응합니다.</p>
+              <p>정기 점검 및 모니터링을 통해 장애를 미연에 방지하고 신속하게 대응합니다.</p>
             </div>
           </div>
         </div>
@@ -314,9 +314,9 @@ function App() {
           <div className="business-info">
             <span className="tag">MAINTENANCE</span>
             <h3>통합 유지보수</h3>
-            <p>24/7 중단 없는 비즈니스 운영을 보장합니다. 정기 점검과 신속한 장애 대응 프로세스를 통해 안정적인 IT 환경을 유지합니다.</p>
+            <p>중단 없는 비즈니스 운영을 보장합니다. 정기 점검과 신속한 장애 대응 프로세스를 통해 안정적인 IT 환경을 유지합니다.</p>
             <div className="feature-list">
-              <div className="feature-item">365일 실시간 모니터링</div>
+              <div className="feature-item">모니터링</div>
               <div className="feature-item">장애 긴급 복구 지원</div>
               <div className="feature-item">시스템 정기 기술 점검</div>
               <div className="feature-item">성능 분석 및 개선 컨설팅</div>
