@@ -1,6 +1,12 @@
 // src/App.tsx
 import { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './App.css';
+
+// EmailJS 설정값 (emailjs.com 에서 발급)
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
 
 const SEARCH_INDEX = [
   { label: '홈', hash: '#home', keywords: ['홈', '메인', '처음', 'home'] },
@@ -89,6 +95,24 @@ function App() {
   }, [currentPath]);
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+
+  const [isSending, setIsSending] = useState(false);
+
+  const handleInquirySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setIsSending(true);
+    try {
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, EMAILJS_PUBLIC_KEY);
+      alert('문의가 성공적으로 접수되었습니다. 담당자가 확인 후 연락드리겠습니다.');
+      form.reset();
+      toggleModal();
+    } catch {
+      alert('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+    } finally {
+      setIsSending(false);
+    }
+  };
 
   // 메인 페이지 컴포넌트
   const MainContent = () => (
@@ -802,37 +826,39 @@ function App() {
               <h2>견적 및 기술 문의</h2>
               <p>문의를 남겨주시면 담당자가 신속히 연락드리겠습니다.</p>
             </div>
-            <form className="inquiry-form" onSubmit={(e) => { e.preventDefault(); alert('문의가 성공적으로 접수되었습니다. 담당자가 확인 후 연락드리겠습니다.'); toggleModal(); }}>
+            <form className="inquiry-form" onSubmit={handleInquirySubmit}>
               <div className="form-row">
                 <div className="form-group">
                   <label>성함 / 담당자명</label>
-                  <input type="text" placeholder="성함을 입력해주세요" required />
+                  <input name="from_name" type="text" placeholder="성함을 입력해주세요" required />
                 </div>
                 <div className="form-group">
                   <label>연락처</label>
-                  <input type="tel" placeholder="010-0000-0000" required />
+                  <input name="phone" type="tel" placeholder="010-0000-0000" required />
                 </div>
               </div>
               <div className="form-group">
                 <label>기업 / 기관명</label>
-                <input type="text" placeholder="회사명을 입력해주세요" required />
+                <input name="company" type="text" placeholder="회사명을 입력해주세요" required />
               </div>
               <div className="form-group">
                 <label>문의 유형</label>
-                <select required>
+                <select name="inquiry_type" required>
                   <option value="">유형을 선택하세요</option>
-                  <option value="design">네트워크 통합 구축/설계</option>
-                  <option value="security">정보보안 솔루션 도입</option>
-                  <option value="maintenance">정기 유지보수 서비스</option>
-                  <option value="equipment">Cisco/Juniper 장비 견적</option>
-                  <option value="etc">기타 IT 서비스 문의</option>
+                  <option value="네트워크 통합 구축/설계">네트워크 통합 구축/설계</option>
+                  <option value="정보보안 솔루션 도입">정보보안 솔루션 도입</option>
+                  <option value="정기 유지보수 서비스">정기 유지보수 서비스</option>
+                  <option value="Cisco/Juniper 장비 견적">Cisco/Juniper 장비 견적</option>
+                  <option value="기타 IT 서비스 문의">기타 IT 서비스 문의</option>
                 </select>
               </div>
               <div className="form-group">
                 <label>문의 상세 내용</label>
-                <textarea rows={5} placeholder="상세한 요구사항이나 현재 인프라 환경을 설명해주세요."></textarea>
+                <textarea name="message" rows={5} placeholder="상세한 요구사항이나 현재 인프라 환경을 설명해주세요."></textarea>
               </div>
-              <button type="submit" className="submit-btn">문의하기 제출</button>
+              <button type="submit" className="submit-btn" disabled={isSending}>
+                {isSending ? '전송 중...' : '문의하기 제출'}
+              </button>
             </form>
           </div>
         </div>
