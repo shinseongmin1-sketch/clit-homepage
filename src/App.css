@@ -432,7 +432,185 @@ button {
   gap: 20px;
 }
 
-/* Map Page Styles */
+/* Product Page Styles */
+.products-page {
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+
+.product-section {
+  margin-bottom: 80px;
+}
+
+.product-section h3 {
+  font-size: 28px;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid #f0f0f0;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.vendor-logo {
+  height: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 20px;
+  color: #555;
+}
+
+.product-card h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.6;
+}
+
+.product-specs {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed #eee;
+  text-align: left;
+}
+
+.spec-item {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 5px;
+}
+.business-page {
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+
+.business-intro {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.business-intro p {
+  font-size: 18px;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.business-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.business-item {
+  display: flex;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  transition: var(--transition);
+  border: 1px solid #f0f0f0;
+}
+
+.business-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+}
+
+.business-img {
+  flex: 1;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.business-info {
+  flex: 1.2;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.business-info .tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(0, 123, 255, 0.1);
+  color: var(--accent-color);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.business-info h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.business-info p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+}
+
+.feature-item::before {
+  content: '✓';
+  margin-right: 8px;
+  color: var(--accent-color);
+  font-weight: 900;
+}
+
+@media (max-width: 992px) {
+  .business-item { flex-direction: column; }
+  .business-info { padding: 30px; }
+  .business-img { height: 250px; }
+}
 .map-page {
   padding-top: 120px;
   min-height: 80vh;
