@@ -21,7 +21,8 @@ function App() {
   // currentPath가 바뀐 후 React 리렌더링이 완료되면 스크롤
   useEffect(() => {
     const elementId = currentPath.replace('#', ''); // #business-ni -> business-ni
-    if (!elementId || elementId === 'home') {
+    const topLevelRoutes = ['home', 'business', 'products', 'partners'];
+    if (!elementId || topLevelRoutes.includes(elementId)) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
