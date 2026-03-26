@@ -142,7 +142,7 @@ function App() {
         <div className="bar"></div>
       </div>
 
-      <div id="p-network" className="product-section">
+      <div id="products-network" className="product-section">
         <h3>네트워크 장비 (NETWORK)</h3>
         <div className="product-grid">
           <div className="product-card">
@@ -175,7 +175,7 @@ function App() {
         </div>
       </div>
 
-      <div id="p-security" className="product-section">
+      <div id="products-security" className="product-section">
         <h3>보안 솔루션 (SECURITY)</h3>
         <div className="product-grid">
           <div className="product-card">
@@ -199,7 +199,7 @@ function App() {
         </div>
       </div>
 
-      <div id="p-server" className="product-section">
+      <div id="products-server" className="product-section">
         <h3>서버 및 스토리지 (SERVER & STORAGE)</h3>
         <div className="product-grid">
           <div className="product-card">
@@ -223,7 +223,7 @@ function App() {
         </div>
       </div>
 
-      <div id="p-solution" className="product-section">
+      <div id="products-solution" className="product-section">
         <h3>솔루션 (SOLUTION)</h3>
         <div className="product-grid">
           <div className="product-card">
@@ -250,7 +250,7 @@ function App() {
         <p>씨엘아이티(주)는 고도의 기술력과 풍부한 인프라 구축 경험을 통해<br />고객사의 비즈니스 혁신을 지원하는 전문 IT 파트너입니다.</p>
       </div>
       <div className="business-list">
-        <div id="b-ni" className="business-item">
+        <div id="business-ni" className="business-item">
           <div className="business-img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)' }}></div>
           <div className="business-info">
             <span className="tag">NETWORK</span>
@@ -264,7 +264,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div id="b-security" className="business-item">
+        <div id="business-security" className="business-item">
           <div className="business-info" style={{ order: 2 }}>
             <span className="tag">SECURITY</span>
             <h3>통합보안 구축</h3>
@@ -278,7 +278,7 @@ function App() {
           </div>
           <div className="business-img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)', order: 1 }}></div>
         </div>
-        <div id="b-maintenance" className="business-item">
+        <div id="business-maintenance" className="business-item">
           <div className="business-img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)' }}></div>
           <div className="business-info">
             <span className="tag">MAINTENANCE</span>
@@ -292,7 +292,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div id="b-infra" className="business-item">
+        <div id="business-infra" className="business-item">
           <div className="business-info" style={{ order: 2 }}>
             <span className="tag">INFRA SERVICE</span>
             <h3>인프라 서비스</h3>
@@ -364,7 +364,6 @@ function App() {
             <div className="nav-item">
               <a href="#products">제품소개</a>
               <div className="dropdown">
-                <a href="#products">제품전체</a>
                 <a href="#products-network">네트워크</a>
                 <a href="#products-security">보안</a>
                 <a href="#products-server">서버 스토리지</a>
