@@ -617,14 +617,13 @@ function App() {
               <div className="category-title">공공 · 공기업</div>
               <div className="client-card-grid">
                 {[
-                  { name: '경상남도청',       icon: '🏛️', color: '#1a4a8a' },
-                  { name: '부산도시공사',     icon: '🏗️', color: '#1a5276' },
-                  { name: '부산명장정수사업소', icon: '💧', color: '#1f618d' },
-                  { name: '게임물관리위원회', icon: '🎮', color: '#6c3483' },
-                  { name: '울산농수산물시장', icon: '🐟', color: '#117a65' },
+                  { name: '경상남도청',         color: '#1a4a8a' },
+                  { name: '부산도시공사',       color: '#1a5276' },
+                  { name: '부산명장정수사업소', color: '#1f618d' },
+                  { name: '게임물관리위원회',   color: '#6c3483' },
+                  { name: '울산농수산물시장',   color: '#117a65' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <div className="client-card-icon">{c.icon}</div>
                     <div className="client-card-name">{c.name}</div>
                   </div>
                 ))}
@@ -635,11 +634,10 @@ function App() {
               <div className="category-title">금융</div>
               <div className="client-card-grid">
                 {[
-                  { name: '부산IBK저축은행',      icon: '🏦', color: '#1e6b9a' },
-                  { name: '부산은행 미음IT센터', icon: '💳', color: '#154360' },
+                  { name: '부산IBK저축은행',    color: '#1e6b9a' },
+                  { name: '부산은행 미음IT센터', color: '#154360' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <div className="client-card-icon">{c.icon}</div>
                     <div className="client-card-name">{c.name}</div>
                   </div>
                 ))}
@@ -650,12 +648,11 @@ function App() {
               <div className="category-title">의료</div>
               <div className="client-card-grid">
                 {[
-                  { name: '메리놀병원',         icon: '🏥', color: '#922b21' },
-                  { name: '동래한서요양병원',   icon: '🏥', color: '#a93226' },
-                  { name: '한서병원',           icon: '🏥', color: '#c0392b' },
+                  { name: '메리놀병원',       color: '#922b21' },
+                  { name: '동래한서요양병원', color: '#a93226' },
+                  { name: '한서병원',         color: '#c0392b' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <div className="client-card-icon">{c.icon}</div>
                     <div className="client-card-name">{c.name}</div>
                   </div>
                 ))}
@@ -666,13 +663,12 @@ function App() {
               <div className="category-title">교육</div>
               <div className="client-card-grid">
                 {[
-                  { name: '대동대학교',         icon: '🎓', color: '#7d6608' },
-                  { name: '동의과학대학교',     icon: '🎓', color: '#6e2f06' },
-                  { name: '부산경상대학교',     icon: '🎓', color: '#1e8449' },
-                  { name: '부산과학기술대학교', icon: '🎓', color: '#1a5276' },
+                  { name: '대동대학교',         color: '#7d6608' },
+                  { name: '동의과학대학교',     color: '#6e2f06' },
+                  { name: '부산경상대학교',     color: '#1e8449' },
+                  { name: '부산과학기술대학교', color: '#1a5276' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <div className="client-card-icon">{c.icon}</div>
                     <div className="client-card-name">{c.name}</div>
                   </div>
                 ))}
@@ -683,12 +679,11 @@ function App() {
               <div className="category-title">제조 · 대기업</div>
               <div className="client-card-grid">
                 {[
-                  { name: '삼성전기 부산사업장', icon: '⚙️', color: '#1c2833' },
-                  { name: '디오임플란트',        icon: '🦷', color: '#2471a3' },
-                  { name: '울산 STM',            icon: '🏭', color: '#2e4057' },
+                  { name: '삼성전기 부산사업장', color: '#1c2833' },
+                  { name: '디오임플란트',        color: '#2471a3' },
+                  { name: '울산 STM',            color: '#2e4057' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <div className="client-card-icon">{c.icon}</div>
                     <div className="client-card-name">{c.name}</div>
                   </div>
                 ))}
@@ -699,10 +694,9 @@ function App() {
               <div className="category-title">서비스 · 유통</div>
               <div className="client-card-grid">
                 {[
-                  { name: '부산 롯데시그니엘', icon: '🏨', color: '#7d3c98' },
+                  { name: '부산 롯데시그니엘', color: '#7d3c98' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <div className="client-card-icon">{c.icon}</div>
                     <div className="client-card-name">{c.name}</div>
                   </div>
                 ))}

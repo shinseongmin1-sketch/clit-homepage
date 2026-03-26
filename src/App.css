@@ -947,64 +947,51 @@ button {
   grid-template-columns: repeat(6, 1fr);
 }
 
-/* Client Cards */
+/* Client Cards — 로고 플레이스홀더 스타일 */
 .client-card-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+  gap: 12px;
 }
 
 .client-card {
-  background: var(--card-color, #1a4a8a);
-  border-radius: 14px;
-  padding: 22px 14px 18px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  height: 80px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  padding: 12px 14px;
   text-align: center;
   transition: var(--transition);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-  position: relative;
-  overflow: hidden;
-}
-
-.client-card::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  right: -30px;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.06);
+  cursor: default;
 }
 
 .client-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.2);
-  filter: brightness(1.1);
-}
-
-.client-card-icon {
-  font-size: 28px;
-  line-height: 1;
+  border-color: var(--card-color, #1a4a8a);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
 }
 
 .client-card-name {
   font-size: 13px;
   font-weight: 700;
-  color: #fff;
+  color: #333;
   line-height: 1.4;
   word-break: keep-all;
 }
 
-@media (max-width: 992px) {
-  .client-card-grid { grid-template-columns: repeat(3, 1fr); }
+.client-card:hover .client-card-name {
+  color: var(--card-color, #1a4a8a);
 }
 
-@media (max-width: 540px) {
-  .client-card-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 992px) {
+  .client-card-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .client-card-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 .partners-divider {
