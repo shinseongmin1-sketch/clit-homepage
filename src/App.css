@@ -655,6 +655,222 @@ button {
   text-decoration: underline;
 }
 
+/* ===== Partners & Clients Page ===== */
+.partners-page {
+  padding-top: 80px;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.partners-hero {
+  background: linear-gradient(135deg, #0A192F 0%, #0e2444 55%, #0f3460 100%);
+  padding: 80px 0 90px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.partners-hero::after {
+  content: '';
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  border: 60px solid rgba(0,123,255,0.08);
+}
+
+.partners-hero-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(0,123,255,0.25);
+  border: 1px solid rgba(0,123,255,0.4);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #60aaff;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.partners-hero h1 {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.partners-hero p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.75);
+  max-width: 580px;
+}
+
+.partners-body {
+  padding: 80px 20px 120px;
+}
+
+.partners-section {
+  margin-bottom: 80px;
+}
+
+.partners-section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.partners-section-label {
+  display: inline-block;
+  padding: 5px 16px;
+  background: rgba(0,123,255,0.1);
+  color: var(--accent-color);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.partners-section-header h2 {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 14px;
+}
+
+.partners-section-header p {
+  font-size: 16px;
+  color: #777;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* 파트너 Tiers */
+.partners-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.partners-tier {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 40px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  border: 1px solid #eaeaea;
+}
+
+.tier-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Logo Grid */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.logo-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px dashed #ddd;
+  transition: var(--transition);
+}
+
+.logo-card.small {
+  height: 72px;
+}
+
+.logo-card.empty:hover {
+  border-color: #bbb;
+  background: #f0f0f0;
+}
+
+.logo-placeholder {
+  width: 70px;
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 4px;
+}
+
+.logo-card.small .logo-placeholder {
+  width: 56px;
+  height: 16px;
+}
+
+/* 고객사 Categories */
+.client-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.client-category {
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px 40px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  border: 1px solid #eaeaea;
+}
+
+.category-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-title::before {
+  content: '';
+  width: 4px;
+  height: 16px;
+  background: var(--accent-color);
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.client-category .logo-grid {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.partners-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ddd, transparent);
+  margin: 20px 0 80px;
+}
+
+@media (max-width: 992px) {
+  .logo-grid { grid-template-columns: repeat(3, 1fr); }
+  .client-category .logo-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .partners-hero h1 { font-size: 34px; }
+  .logo-grid { grid-template-columns: repeat(2, 1fr); }
+  .client-category .logo-grid { grid-template-columns: repeat(3, 1fr); }
+  .partners-tier, .client-category { padding: 24px 20px; }
+}
+
 /* ===== History Page ===== */
 .history-page {
   padding-top: 80px;

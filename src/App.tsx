@@ -492,6 +492,76 @@ function App() {
     );
   };
 
+  const PartnersPage = () => (
+    <div className="partners-page">
+      {/* Hero */}
+      <div className="partners-hero">
+        <div className="container">
+          <span className="partners-hero-tag">PARTNERS & CLIENTS</span>
+          <h1>신뢰로 함께하는<br />파트너 · 고객사</h1>
+          <p>씨엘아이티(주)는 글로벌 기술 파트너와 함께 고객사에 최적의 IT 인프라를 제공합니다.</p>
+        </div>
+      </div>
+
+      <div className="container partners-body">
+
+        {/* 파트너 */}
+        <div id="partners-1" className="partners-section">
+          <div className="partners-section-header">
+            <div className="partners-section-label">PARTNER</div>
+            <h2>협력 파트너사</h2>
+            <p>씨엘아이티(주)는 세계 최고 수준의 네트워크·보안 기업들과 공식 파트너십을 맺고 검증된 솔루션을 제공합니다.</p>
+          </div>
+          <div className="partners-tiers">
+            {['공인 파트너', '기술 파트너', '리셀러 파트너'].map((tier, ti) => (
+              <div key={ti} className="partners-tier">
+                <div className="tier-label">{tier}</div>
+                <div className="logo-grid">
+                  {[...Array(4)].map((_, i) => (
+                    <div key={i} className="logo-card empty">
+                      <div className="logo-placeholder"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="partners-divider"></div>
+
+        {/* 고객사 */}
+        <div id="partners-2" className="partners-section">
+          <div className="partners-section-header">
+            <div className="partners-section-label">CLIENT</div>
+            <h2>주요 고객사</h2>
+            <p>공공기관, 금융, 의료, 제조 등 다양한 산업군의 고객사에 안정적인 IT 인프라를 공급하고 있습니다.</p>
+          </div>
+          <div className="client-categories">
+            {[
+              { label: '공공 · 공기업', count: 6 },
+              { label: '금융 · 보험', count: 6 },
+              { label: '의료 · 교육', count: 6 },
+              { label: '제조 · 일반기업', count: 6 },
+            ].map((cat, ci) => (
+              <div key={ci} className="client-category">
+                <div className="category-title">{cat.label}</div>
+                <div className="logo-grid">
+                  {[...Array(cat.count)].map((_, i) => (
+                    <div key={i} className="logo-card empty small">
+                      <div className="logo-placeholder"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+
   const HistoryPage = () => {
     const history = [
       {
@@ -637,6 +707,7 @@ function App() {
        currentPath.startsWith('#recruitment') ? <RecruitmentPage /> :
        currentPath.startsWith('#business') ? <BusinessPage /> :
        currentPath.startsWith('#products') ? <ProductsPage /> :
+       currentPath.startsWith('#partners') ? <PartnersPage /> :
        <MainContent />}
 
       {/* Inquiry Modal */}
