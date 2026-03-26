@@ -111,7 +111,7 @@ function App() {
             <div className="service-card">
               <div className="service-icon">📦</div>
               <h3>장비 납품</h3>
-              <p>Cisco, Juniper, Arista 등 글로벌 브랜드의 정품 장비를 합리적인 가격에 공급합니다.</p>
+              <p>Cisco, Juniper, HP 등 글로벌 브랜드의 정품 장비를 합리적인 가격에 공급합니다.</p>
             </div>
             <div className="service-card">
               <div className="service-icon">🛠️</div>
