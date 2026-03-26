@@ -1,10 +1,60 @@
 // src/App.tsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
+
+const SEARCH_INDEX = [
+  { label: '홈', hash: '#home', keywords: ['홈', '메인', '처음', 'home'] },
+  { label: '회사소개', hash: '#about', keywords: ['회사소개', '회사', 'about', '씨엘아이티', 'clit'] },
+  { label: '연혁', hash: '#history', keywords: ['연혁', '역사', '설립', 'history'] },
+  { label: '오시는 길', hash: '#location', keywords: ['오시는길', '오시는 길', '위치', '지도', '주소', '찾아오는'] },
+  { label: '비지니스', hash: '#business', keywords: ['비지니스', '사업', 'business'] },
+  { label: '네트워크 통합 (NI)', hash: '#business-ni', keywords: ['네트워크통합', '네트워크 통합', 'ni', '네트워크'] },
+  { label: '통합보안 구축', hash: '#business-security', keywords: ['보안', '통합보안', '방화벽', 'security', 'vpn'] },
+  { label: '통합 유지보수', hash: '#business-maintenance', keywords: ['유지보수', '유지', '보수', 'maintenance', '장애'] },
+  { label: '인프라 서비스', hash: '#business-infra', keywords: ['인프라', '서버', '스토리지', '클라우드', 'infra'] },
+  { label: '제품소개', hash: '#products', keywords: ['제품소개', '제품', 'product'] },
+  { label: '네트워크 장비', hash: '#products-network', keywords: ['네트워크장비', '스위치', 'cisco', 'juniper', 'aruba', 'hp'] },
+  { label: '무선 AP', hash: '#products-wireless', keywords: ['무선', 'ap', 'wifi', 'wi-fi', '액세스포인트', 'access point', '무선ap'] },
+  { label: '보안 솔루션', hash: '#products-security', keywords: ['보안솔루션', 'axgate', 'ssl', '방화벽'] },
+  { label: '서버 · 스토리지', hash: '#products-server', keywords: ['서버', '스토리지', 'server', 'storage'] },
+  { label: '솔루션 (NMS)', hash: '#products-solution', keywords: ['솔루션', 'nms', '모니터링', 'solution'] },
+  { label: '파트너사', hash: '#partners-1', keywords: ['파트너', 'partner', '협력'] },
+  { label: '고객사', hash: '#partners-2', keywords: ['고객사', '고객', 'client'] },
+  { label: '채용정보', hash: '#recruitment', keywords: ['채용', '취업', '입사', '채용정보', 'recruit', '지원'] },
+  { label: '채용공고', hash: '#recruitment-jobs', keywords: ['채용공고', '공고', '구인', '네트워크엔지니어'] },
+  { label: '고객문의', hash: '#contact', keywords: ['문의', '연락', 'contact', '상담', '견적'] },
+];
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#home');
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const searchRef = useRef<HTMLDivElement>(null);
+
+  const searchResults = searchQuery.trim().length > 0
+    ? SEARCH_INDEX.filter(item =>
+        item.keywords.some(kw => kw.includes(searchQuery.toLowerCase())) ||
+        item.label.toLowerCase().includes(searchQuery.toLowerCase())
+      ).slice(0, 6)
+    : [];
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setSearchOpen(false);
+        setSearchQuery('');
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleSearchSelect = (hash: string) => {
+    window.location.hash = hash;
+    setSearchOpen(false);
+    setSearchQuery('');
+  };
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -698,6 +748,39 @@ function App() {
               <a href="#contact">고객문의</a>
             </div>
           </nav>
+          <div className="search-wrap" ref={searchRef}>
+            {searchOpen ? (
+              <div className="search-box">
+                <input
+                  autoFocus
+                  type="text"
+                  placeholder="검색어를 입력하세요"
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  className="search-input"
+                />
+                <button className="search-close" onClick={() => { setSearchOpen(false); setSearchQuery(''); }}>✕</button>
+                {searchResults.length > 0 && (
+                  <ul className="search-results">
+                    {searchResults.map((r, i) => (
+                      <li key={i} onClick={() => handleSearchSelect(r.hash)}>{r.label}</li>
+                    ))}
+                  </ul>
+                )}
+                {searchQuery.trim().length > 0 && searchResults.length === 0 && (
+                  <ul className="search-results">
+                    <li className="no-result">검색 결과가 없습니다</li>
+                  </ul>
+                )}
+              </div>
+            ) : (
+              <button className="search-icon-btn" onClick={() => setSearchOpen(true)}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              </button>
+            )}
+          </div>
         </div>
       </header>
 
