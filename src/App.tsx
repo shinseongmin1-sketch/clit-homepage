@@ -133,7 +133,7 @@ function App() {
             <div style={{fontSize: '24px', fontWeight: 'bold', margin: '20px 0'}}>
               📞 051-501-3735 | 3734
             </div>
-            <p>📧 clit@clit.co.kr</p>
+            <p>📧 jylee@clict.co.kr</p>
             <button onClick={toggleModal} className="cta-button" style={{marginTop: '20px', border: 'none'}}>견적 문의하기</button>
           </div>
         </div>
