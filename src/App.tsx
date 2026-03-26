@@ -186,7 +186,7 @@ function App() {
         <div className="product-grid">
           <div className="product-card">
             <div className="vendor-logo" style={{ color: '#00bceb' }}>CISCO</div>
-            <h4>Cisco Catalyst 9100 AP</h4>
+            <h4>Cisco Catalyst Access Point</h4>
             <p>Wi-Fi 6/6E를 지원하는 차세대 엔터프라이즈 무선 액세스 포인트입니다.</p>
             <div className="product-specs">
               <div className="spec-item">• Wi-Fi 6E (802.11ax) 지원</div>
@@ -195,7 +195,7 @@ function App() {
           </div>
           <div className="product-card">
             <div className="vendor-logo" style={{ color: '#01a982' }}>HP (Aruba)</div>
-            <h4>Aruba AP-600 Series</h4>
+            <h4>Aruba Access Point</h4>
             <p>고밀도 환경에 최적화된 Wi-Fi 6E 무선 AP로 안정적인 무선 커버리지를 제공합니다.</p>
             <div className="product-specs">
               <div className="spec-item">• Aruba Central 클라우드 관리</div>
