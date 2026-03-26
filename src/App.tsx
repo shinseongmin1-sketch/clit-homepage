@@ -310,7 +310,7 @@ function App() {
           <div className="product-card">
             <div className="vendor-logo" style={{ color: '#007bff' }}>CLIT MONITORING</div>
             <h4>통합 NMS 솔루션</h4>
-            <p>씨엘아이티만의 전문 노하우가 담긴 실시간 네트워크 모니터링 시스템입니다.</p>
+            <p>씨엘아이티만의 전문 노하우가 담긴 네트워크 모니터링 관리 시스템입니다.</p>
             <div className="product-specs">
               <div className="spec-item">• 트래픽 실시간 시각화</div>
               <div className="spec-item">• 이상 징후 자동 알림 서비스</div>
