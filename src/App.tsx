@@ -475,14 +475,14 @@ function App() {
                           <ul>{job.requirements.map((r, i) => <li key={i}>{r}</li>)}</ul>
                         </div>
                       </div>
-                      <a href="mailto:clit@clit.co.kr?subject=입사지원" className="apply-btn">지원하기 →</a>
+                      <a href="mailto:hwchoi@next-ict.co.kr?subject=입사지원" className="apply-btn">지원하기 →</a>
                     </div>
                   )}
                 </div>
               ))}
             </div>
             <div className="recruit-notice">
-              <p>* 이력서는 <strong>clit@clit.co.kr</strong> 로 보내주세요. (양식 무관)</p>
+              <p>* 이력서는 <strong>hwchoi@next-ict.co.kr</strong> 로 보내주세요. (양식 무관)</p>
               <p>* 채용 관련 문의: <strong>051-501-3735</strong></p>
             </div>
           </div>
