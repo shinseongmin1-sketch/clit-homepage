@@ -491,6 +491,65 @@ function App() {
     );
   };
 
+  const HistoryPage = () => {
+    const history = [
+      {
+        year: '2014',
+        events: [{ date: '2014. 12. 10', text: '씨엘아이티(주) 법인 설립' }],
+      },
+      { year: '2015', events: [] },
+      { year: '2016', events: [] },
+      { year: '2017', events: [] },
+      { year: '2018', events: [] },
+      { year: '2019', events: [] },
+      { year: '2020', events: [] },
+      { year: '2021', events: [] },
+      { year: '2022', events: [] },
+      { year: '2023', events: [] },
+      { year: '2024', events: [] },
+      { year: '2025', events: [] },
+      { year: '2026', events: [] },
+    ];
+
+    return (
+      <div className="history-page">
+        <div className="history-hero">
+          <div className="container">
+            <span className="history-hero-tag">HISTORY</span>
+            <h1>씨엘아이티(주)의<br />걸어온 길</h1>
+            <p>2014년 설립 이래 최고의 기술력으로 고객과 함께 성장해 왔습니다.</p>
+          </div>
+        </div>
+
+        <div className="container history-body">
+          <div className="timeline">
+            {history.map((row, i) => (
+              <div key={i} className={`timeline-row ${i % 2 === 0 ? 'left' : 'right'}`}>
+                <div className="timeline-content">
+                  <div className="timeline-year">{row.year}</div>
+                  {row.events.length > 0 ? (
+                    <ul className="timeline-events">
+                      {row.events.map((e, j) => (
+                        <li key={j}>
+                          <span className="event-date">{e.date}</span>
+                          <span className="event-text">{e.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="timeline-empty">—</p>
+                  )}
+                </div>
+                <div className="timeline-dot"></div>
+              </div>
+            ))}
+            <div className="timeline-line"></div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   const MapPage = () => (
     <div className="map-page container">
       <div className="section-title">
@@ -529,7 +588,7 @@ function App() {
               <a href="#about">회사소개</a>
               <div className="dropdown">
                 <a href="#about">회사소개</a>
-                <a href="#home">연혁</a>
+                <a href="#history">연혁</a>
                 <a href="#location">오시는 길</a>
               </div>
             </div>
@@ -573,6 +632,7 @@ function App() {
 
       {/* 라우팅 처리 */}
       {currentPath === '#location' ? <MapPage /> :
+       currentPath === '#history' ? <HistoryPage /> :
        currentPath.startsWith('#recruitment') ? <RecruitmentPage /> :
        currentPath.startsWith('#business') ? <BusinessPage /> :
        currentPath.startsWith('#products') ? <ProductsPage /> :
