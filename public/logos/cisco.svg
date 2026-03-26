@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
+  <rect width="120" height="40" fill="white"/>
+  <!-- Cisco bars -->
+  <rect x="6" y="14" width="4" height="12" rx="2" fill="#049FD9"/>
+  <rect x="13" y="10" width="4" height="20" rx="2" fill="#049FD9"/>
+  <rect x="20" y="6" width="4" height="28" rx="2" fill="#049FD9"/>
+  <rect x="27" y="10" width="4" height="20" rx="2" fill="#049FD9"/>
+  <rect x="34" y="14" width="4" height="12" rx="2" fill="#049FD9"/>
+  <text x="46" y="27" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#049FD9">cisco</text>
+</svg>

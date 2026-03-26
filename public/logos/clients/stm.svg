@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 60">
+  <rect width="110" height="60" fill="white"/>
+  <rect x="0" y="0" width="110" height="6" fill="#2e4057"/>
+  <rect x="30" y="10" width="50" height="30" rx="4" fill="#2e4057"/>
+  <text x="55" y="30" font-family="Arial" font-weight="bold" font-size="14" fill="white" text-anchor="middle">STM</text>
+  <text x="55" y="52" font-family="'Malgun Gothic',Arial" font-size="8.5" fill="#2e4057" text-anchor="middle" font-weight="bold">울산 STM</text>
+</svg>

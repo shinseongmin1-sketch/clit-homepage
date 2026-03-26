@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
+  <rect width="120" height="40" fill="white"/>
+  <polygon points="20,8 34,16 34,28 20,36 6,28 6,16" fill="#FDB813"/>
+  <text x="12" y="26" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="white">S</text>
+  <text x="40" y="24" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#333">Symantec</text>
+</svg>

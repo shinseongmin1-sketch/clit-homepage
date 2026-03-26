@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
+  <rect width="120" height="40" fill="white"/>
+  <rect x="6" y="8" width="24" height="24" rx="4" fill="#CC0000"/>
+  <text x="10" y="26" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="white">✓</text>
+  <text x="35" y="19" font-family="Arial, sans-serif" font-weight="bold" font-size="9" fill="#CC0000">Check Point</text>
+  <text x="35" y="30" font-family="Arial, sans-serif" font-size="7.5" fill="#555">Software Technologies</text>
+</svg>

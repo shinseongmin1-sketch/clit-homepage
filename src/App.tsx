@@ -587,13 +587,41 @@ function App() {
             <p>씨엘아이티(주)는 세계 최고 수준의 네트워크·보안 기업들과 공식 파트너십을 맺고 검증된 솔루션을 제공합니다.</p>
           </div>
           <div className="partners-tiers">
-            {['공인 파트너', '기술 파트너', '리셀러 파트너'].map((tier, ti) => (
+            {[
+              {
+                label: '공인 파트너',
+                logos: [
+                  { src: '/logos/cisco.svg', alt: 'Cisco' },
+                  { src: '/logos/juniper.svg', alt: 'Juniper Networks' },
+                  { src: '/logos/paloalto.svg', alt: 'Palo Alto Networks' },
+                  { src: '/logos/fortinet.svg', alt: 'Fortinet' },
+                ],
+              },
+              {
+                label: '기술 파트너',
+                logos: [
+                  { src: '/logos/hpe.svg', alt: 'HPE' },
+                  { src: '/logos/aruba.svg', alt: 'Aruba' },
+                  { src: '/logos/dell.svg', alt: 'Dell Technologies' },
+                  { src: '/logos/checkpoint.svg', alt: 'Check Point' },
+                ],
+              },
+              {
+                label: '리셀러 파트너',
+                logos: [
+                  { src: '/logos/f5.svg', alt: 'F5 Networks' },
+                  { src: '/logos/sophos.svg', alt: 'Sophos' },
+                  { src: '/logos/symantec.svg', alt: 'Symantec' },
+                  { src: '/logos/trendmicro.svg', alt: 'Trend Micro' },
+                ],
+              },
+            ].map((tier, ti) => (
               <div key={ti} className="partners-tier">
-                <div className="tier-label">{tier}</div>
+                <div className="tier-label">{tier.label}</div>
                 <div className="logo-grid">
-                  {[...Array(4)].map((_, i) => (
-                    <div key={i} className="logo-card empty">
-                      <div className="logo-placeholder"></div>
+                  {tier.logos.map((logo, i) => (
+                    <div key={i} className="logo-card">
+                      <img src={logo.src} alt={logo.alt} style={{ width: '100%', maxWidth: '110px', height: '36px', objectFit: 'contain' }} />
                     </div>
                   ))}
                 </div>
@@ -617,14 +645,14 @@ function App() {
               <div className="category-title">공공 · 공기업</div>
               <div className="client-card-grid">
                 {[
-                  { name: '경상남도청',         color: '#1a4a8a' },
-                  { name: '부산도시공사',       color: '#1a5276' },
-                  { name: '부산명장정수사업소', color: '#1f618d' },
-                  { name: '게임물관리위원회',   color: '#6c3483' },
-                  { name: '울산농수산물시장',   color: '#117a65' },
+                  { name: '경상남도청',         color: '#1a4a8a', logo: '/logos/clients/gyeongnam.svg' },
+                  { name: '부산도시공사',       color: '#1a5276', logo: '/logos/clients/busanurban.svg' },
+                  { name: '부산명장정수사업소', color: '#1f618d', logo: '/logos/clients/myeongjang.svg' },
+                  { name: '게임물관리위원회',   color: '#6c3483', logo: '/logos/clients/grac.svg' },
+                  { name: '울산농수산물시장',   color: '#117a65', logo: '/logos/clients/ulsanmarket.svg' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <div className="client-card-name">{c.name}</div>
+                    <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                   </div>
                 ))}
               </div>
@@ -634,11 +662,11 @@ function App() {
               <div className="category-title">금융</div>
               <div className="client-card-grid">
                 {[
-                  { name: '부산IBK저축은행',    color: '#1e6b9a' },
-                  { name: '부산은행 미음IT센터', color: '#154360' },
+                  { name: '부산IBK저축은행',    color: '#1e6b9a', logo: '/logos/clients/ibk.svg' },
+                  { name: '부산은행 미음IT센터', color: '#154360', logo: '/logos/clients/busanbank.svg' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <div className="client-card-name">{c.name}</div>
+                    <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                   </div>
                 ))}
               </div>
@@ -648,12 +676,12 @@ function App() {
               <div className="category-title">의료</div>
               <div className="client-card-grid">
                 {[
-                  { name: '메리놀병원',       color: '#922b21' },
-                  { name: '동래한서요양병원', color: '#a93226' },
-                  { name: '한서병원',         color: '#c0392b' },
+                  { name: '메리놀병원',       color: '#922b21', logo: '/logos/clients/maryknoll.svg' },
+                  { name: '동래한서요양병원', color: '#a93226', logo: '/logos/clients/dongrae.svg' },
+                  { name: '한서병원',         color: '#c0392b', logo: '/logos/clients/hanseo.svg' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <div className="client-card-name">{c.name}</div>
+                    <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                   </div>
                 ))}
               </div>
@@ -663,13 +691,13 @@ function App() {
               <div className="category-title">교육</div>
               <div className="client-card-grid">
                 {[
-                  { name: '대동대학교',         color: '#7d6608' },
-                  { name: '동의과학대학교',     color: '#6e2f06' },
-                  { name: '부산경상대학교',     color: '#1e8449' },
-                  { name: '부산과학기술대학교', color: '#1a5276' },
+                  { name: '대동대학교',         color: '#7d6608', logo: '/logos/clients/daedong.svg' },
+                  { name: '동의과학대학교',     color: '#6e2f06', logo: '/logos/clients/dongui.svg' },
+                  { name: '부산경상대학교',     color: '#1e8449', logo: '/logos/clients/busangyeongsung.svg' },
+                  { name: '부산과학기술대학교', color: '#1a5276', logo: '/logos/clients/busantech.svg' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <div className="client-card-name">{c.name}</div>
+                    <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                   </div>
                 ))}
               </div>
@@ -679,12 +707,12 @@ function App() {
               <div className="category-title">제조 · 대기업</div>
               <div className="client-card-grid">
                 {[
-                  { name: '삼성전기 부산사업장', color: '#1c2833' },
-                  { name: '디오임플란트',        color: '#2471a3' },
-                  { name: '울산 STM',            color: '#2e4057' },
+                  { name: '삼성전기 부산사업장', color: '#1c2833', logo: '/logos/clients/samsungelec.svg' },
+                  { name: '디오임플란트',        color: '#2471a3', logo: '/logos/clients/dio.svg' },
+                  { name: '울산 STM',            color: '#2e4057', logo: '/logos/clients/stm.svg' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <div className="client-card-name">{c.name}</div>
+                    <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                   </div>
                 ))}
               </div>
@@ -694,10 +722,10 @@ function App() {
               <div className="category-title">서비스 · 유통</div>
               <div className="client-card-grid">
                 {[
-                  { name: '부산 롯데시그니엘', color: '#7d3c98' },
+                  { name: '부산 롯데시그니엘', color: '#7d3c98', logo: '/logos/clients/lotte.svg' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <div className="client-card-name">{c.name}</div>
+                    <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                   </div>
                 ))}
               </div>
@@ -813,21 +841,9 @@ function App() {
             </div>
             <div className="nav-item">
               <a href="#business">비지니스</a>
-              <div className="dropdown">
-                <a href="#business-ni">네트워크 통합</a>
-                <a href="#business-security">통합보안 구축</a>
-                <a href="#business-maintenance">통합 유지보수</a>
-                <a href="#business-infra">인프라 서비스</a>
-              </div>
             </div>
             <div className="nav-item">
               <a href="#products">제품소개</a>
-              <div className="dropdown">
-                <a href="#products-network">네트워크</a>
-                <a href="#products-security">보안</a>
-                <a href="#products-server">서버 스토리지</a>
-                <a href="#products-solution">솔루션</a>
-              </div>
             </div>
             <div className="nav-item">
               <a href="#partners">파트너·고객사</a>

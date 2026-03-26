@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
+  <rect width="120" height="40" fill="white"/>
+  <rect x="6" y="8" width="24" height="24" rx="12" fill="#1F5EAD"/>
+  <text x="11" y="25" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="white">S</text>
+  <text x="36" y="24" font-family="Arial, sans-serif" font-weight="bold" font-size="15" fill="#1F5EAD">sophos</text>
+</svg>

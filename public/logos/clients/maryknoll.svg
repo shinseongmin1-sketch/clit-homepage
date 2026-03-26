@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 60">
+  <rect width="110" height="60" fill="white"/>
+  <rect x="0" y="0" width="110" height="6" fill="#922b21"/>
+  <rect x="38" y="10" width="34" height="30" rx="17" fill="#922b21"/>
+  <line x1="55" y1="12" x2="55" y2="38" stroke="white" stroke-width="2"/>
+  <line x1="43" y1="24" x2="67" y2="24" stroke="white" stroke-width="2"/>
+  <text x="55" y="52" font-family="'Malgun Gothic',Arial" font-size="8.5" fill="#922b21" text-anchor="middle" font-weight="bold">메리놀병원</text>
+</svg>
