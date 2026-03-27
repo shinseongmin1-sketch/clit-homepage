@@ -1,12 +1,9 @@
 // src/App.tsx
 import { useState, useEffect, useRef } from 'react';
-import emailjs from '@emailjs/browser';
 import './App.css';
 
-// EmailJS 설정값 (emailjs.com 에서 발급)
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+// web3forms.com 에서 jylee@clict.co.kr 로 발급받은 Access Key
+const WEB3FORMS_KEY = '03939c95-62bb-4936-b8b7-a95566a6a0f2';
 
 const SEARCH_INDEX = [
   { label: '홈', hash: '#home', keywords: ['홈', '메인', '처음', 'home'] },
@@ -106,9 +103,23 @@ function App() {
   const handleInquirySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
+    const fd = new FormData(form);
     setIsSending(true);
     try {
-      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, EMAILJS_PUBLIC_KEY);
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `[씨엘아이티 문의] ${fd.get('inquiry_type')} - ${fd.get('company')}`,
+          from_name: fd.get('from_name'),
+          phone: fd.get('phone'),
+          company: fd.get('company'),
+          inquiry_type: fd.get('inquiry_type'),
+          message: fd.get('message'),
+        }),
+      });
+      if (!res.ok) throw new Error();
       alert('문의가 성공적으로 접수되었습니다. 담당자가 확인 후 연락드리겠습니다.');
       form.reset();
       toggleModal();
