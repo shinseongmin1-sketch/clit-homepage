@@ -1,6 +1,10 @@
 // src/App.tsx
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
+import ResumePage from './ResumePage';
+
+// ✅ 채용 모집 기간 설정 — 관리자가 true/false 로 변경
+const IS_RECRUITING = false;
 
 // web3forms.com 에서 jylee@clict.co.kr 로 발급받은 Access Key
 const WEB3FORMS_KEY = '03939c95-62bb-4936-b8b7-a95566a6a0f2';
@@ -80,7 +84,7 @@ function App() {
   // currentPath가 바뀐 후 React 리렌더링이 완료되면 스크롤
   useEffect(() => {
     const elementId = currentPath.replace('#', '');
-    const topLevelRoutes = ['home', 'about', 'ceo', 'history', 'location', 'business', 'products', 'partners', 'recruitment', 'contact'];
+    const topLevelRoutes = ['home', 'about', 'ceo', 'history', 'location', 'business', 'products', 'partners', 'recruitment', 'contact', 'apply'];
     if (!elementId || topLevelRoutes.includes(elementId)) {
       window.scrollTo({ top: 0, behavior: 'instant' });
       return;
@@ -662,7 +666,7 @@ function App() {
                           <ul>{job.requirements.map((r, i) => <li key={i}>{r}</li>)}</ul>
                         </div>
                       </div>
-                      <a href="mailto:hwchoi@next-ict.co.kr?subject=입사지원" className="apply-btn">지원하기 →</a>
+                      <a href="#apply" className="apply-btn" onClick={e => { if (!IS_RECRUITING) { e.preventDefault(); alert('현재 모집 기간이 아닙니다.\n채용 공고가 오픈되면 다시 안내드리겠습니다.'); } }}>지원하기 →</a>
                     </div>
                   )}
                 </div>
@@ -977,7 +981,7 @@ function App() {
                 const side = i % 2 === 0 ? 'left' : 'right';
                 const isEmpty = row.events.length === 0;
                 const contentBlock = !isEmpty && (
-                  <div className="timeline-content">
+                  <div className={`timeline-content${row.events.length === 1 ? ' timeline-content--single' : ''}`}>
                     <ul className="timeline-events">
                       {row.events.map((e, j) => (
                         <li key={j}>
@@ -1042,7 +1046,7 @@ function App() {
         <h3>사무실 위치</h3>
         <p><strong>주소:</strong> 부산광역시 동래구 충렬대로 84 영남빌딩 303호 (미남역 10번 출구 바로 앞)</p>
         <p><strong>전화:</strong> 051-501-3735 / 3734</p>
-        <p><strong>이메일:</strong> clit@clit.co.kr</p>
+        <p><strong>이메일:</strong> hwchoi@next-ict.co.kr</p>
         <a href="#home" className="back-home">홈으로 돌아가기</a>
       </div>
     </div>
@@ -1126,6 +1130,7 @@ function App() {
       {currentPath === '#location' ? <MapPage /> :
        currentPath === '#ceo' ? <CeoPage /> :
        currentPath === '#history' ? <HistoryPage /> :
+       currentPath === '#apply' ? <ResumePage /> :
        currentPath.startsWith('#recruitment') ? <RecruitmentPage /> :
        currentPath.startsWith('#business') ? <BusinessPage /> :
        currentPath.startsWith('#products') ? <ProductsPage /> :

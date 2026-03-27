@@ -1,0 +1,259 @@
+/* src/ResumePage.css */
+
+.resume-page {
+  min-height: 100vh;
+  background: #f4f5f7;
+}
+
+.resume-hero {
+  background: linear-gradient(135deg, #0a1628 0%, #1a3a6b 100%);
+  padding: 72px 0 52px;
+  text-align: center;
+  color: #fff;
+}
+.resume-hero-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  color: #a8c8ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+.resume-hero h1 { font-size: 32px; font-weight: 700; margin: 0 0 8px; }
+.resume-hero p  { font-size: 15px; color: rgba(255,255,255,0.65); margin: 0; }
+
+/* body */
+.resume-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.resume-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* section */
+.rs-section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 28px 28px 20px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+
+.rs-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0a1628;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e8eaed;
+}
+
+.rs-section-head,
+.rs-subsection-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.rs-section-head .rs-title { margin: 0; padding: 0; border: none; }
+.rs-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #344563;
+}
+
+.rs-add-btn {
+  background: #1a3a6b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.rs-add-btn:hover { background: #0a1628; }
+
+/* block */
+.rs-block {
+  border: 1px solid #e8eaed;
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 12px;
+  background: #fafbfc;
+}
+.rs-inline-block {
+  margin-bottom: 8px;
+}
+
+/* row & field */
+.rs-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.rs-row:last-child { margin-bottom: 0; }
+
+.rs-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 140px;
+}
+.rs-field.full { flex: 1 1 100%; }
+
+.rs-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #5e6c84;
+}
+
+.rs-field input,
+.rs-field select,
+.rs-field textarea {
+  border: 1px solid #dfe1e6;
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 14px;
+  color: #172b4d;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.rs-field input:focus,
+.rs-field select:focus,
+.rs-field textarea:focus {
+  border-color: #1a3a6b;
+  box-shadow: 0 0 0 3px rgba(26,58,107,0.08);
+}
+.rs-field textarea { resize: vertical; min-height: 70px; }
+
+/* checkbox */
+.rs-check-field { justify-content: flex-end; padding-bottom: 2px; }
+.rs-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #344563;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.rs-checkbox-label input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #1a3a6b;
+}
+
+/* remove buttons */
+.rs-remove-btn {
+  background: #fff;
+  color: #e53e3e;
+  border: 1px solid #e53e3e;
+  border-radius: 5px;
+  padding: 4px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: all 0.2s;
+}
+.rs-remove-btn:hover { background: #e53e3e; color: #fff; }
+
+.rs-remove-inline {
+  background: none;
+  border: none;
+  color: #adb5bd;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 4px;
+  align-self: flex-end;
+  margin-bottom: 2px;
+  line-height: 38px;
+}
+.rs-remove-inline:hover { color: #e53e3e; }
+
+.req { color: #e53e3e; }
+
+/* privacy */
+.rs-privacy-box {
+  background: #f8f9fa;
+  border: 1px solid #e8eaed;
+  border-radius: 7px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: #5e6c84;
+  line-height: 1.9;
+}
+.rs-privacy-box p { margin: 0; }
+
+.rs-consent-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #172b4d;
+  cursor: pointer;
+}
+.rs-consent-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #1a3a6b;
+}
+
+/* actions */
+.rs-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+.rs-cancel {
+  background: #fff;
+  color: #5e6c84;
+  border: 1px solid #dfe1e6;
+  border-radius: 7px;
+  padding: 11px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.rs-cancel:hover { background: #f4f5f7; border-color: #adb5bd; }
+
+.rs-submit {
+  background: #1a3a6b;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 11px 32px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.rs-submit:hover:not(:disabled) { background: #0a1628; }
+.rs-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+
+@media (max-width: 580px) {
+  .rs-row { flex-direction: column; gap: 10px; }
+  .rs-field { min-width: unset; }
+  .rs-section { padding: 20px 16px; }
+  .resume-hero h1 { font-size: 24px; }
+}
