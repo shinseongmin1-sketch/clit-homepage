@@ -78,17 +78,19 @@ function App() {
 
   // currentPath가 바뀐 후 React 리렌더링이 완료되면 스크롤
   useEffect(() => {
-    const elementId = currentPath.replace('#', ''); // #business-ni -> business-ni
-    const topLevelRoutes = ['home', 'business', 'products', 'partners'];
+    const elementId = currentPath.replace('#', '');
+    const topLevelRoutes = ['home', 'about', 'ceo', 'history', 'location', 'business', 'products', 'partners', 'recruitment', 'contact'];
     if (!elementId || topLevelRoutes.includes(elementId)) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'instant' });
       return;
     }
     // 리렌더링 후 DOM에 요소가 생길 때까지 대기
     const tryScroll = (attempts = 0) => {
       const element = document.getElementById(elementId);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const headerOffset = 90;
+        const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top, behavior: 'smooth' });
       } else if (attempts < 10) {
         setTimeout(() => tryScroll(attempts + 1), 50);
       }
@@ -181,6 +183,36 @@ function App() {
         </div>
       </section>
       
+      <section id="about-achievements" className="about-achievements-section">
+        <div className="container">
+          <div className="achievements-top">
+            <div className="achievements-top-left">
+              <span className="achievements-eyebrow">RECENT ACHIEVEMENTS</span>
+              <h2 className="achievements-title">주요 실적</h2>
+            </div>
+            <p className="achievements-desc">2023년부터 2025년까지 씨엘아이티㈜가 수행한 주요 프로젝트입니다.</p>
+          </div>
+          <div className="achievements-grid">
+            {[
+              { year: '2023', items: ['실적 내용을 입력해주세요'] },
+              { year: '2024', items: ['실적 내용을 입력해주세요'] },
+              { year: '2025', items: ['실적 내용을 입력해주세요'] },
+            ].map(({ year, items }) => (
+              <div className="achievement-year-card" key={year}>
+                <div className="achievement-year-label">{year}</div>
+                <ul className="achievement-list">
+                  {items.map((item, i) => (
+                    <li className={`achievement-item${item === '실적 내용을 입력해주세요' ? ' achievement-placeholder' : ''}`} key={i}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="services" className="section">
         <div className="container">
           <div className="section-title">
@@ -663,47 +695,8 @@ function App() {
             <h2>협력 파트너사</h2>
             <p>씨엘아이티(주)는 세계 최고 수준의 네트워크·보안 기업들과 공식 파트너십을 맺고 검증된 솔루션을 제공합니다.</p>
           </div>
-          <div className="partners-tiers">
-            {[
-              {
-                label: '공인 파트너',
-                logos: [
-                  { src: '/logos/cisco.svg', alt: 'Cisco' },
-                  { src: '/logos/juniper.svg', alt: 'Juniper Networks' },
-                  { src: '/logos/paloalto.svg', alt: 'Palo Alto Networks' },
-                  { src: '/logos/fortinet.svg', alt: 'Fortinet' },
-                ],
-              },
-              {
-                label: '기술 파트너',
-                logos: [
-                  { src: '/logos/hpe.svg', alt: 'HPE' },
-                  { src: '/logos/aruba.svg', alt: 'Aruba' },
-                  { src: '/logos/dell.svg', alt: 'Dell Technologies' },
-                  { src: '/logos/checkpoint.svg', alt: 'Check Point' },
-                ],
-              },
-              {
-                label: '리셀러 파트너',
-                logos: [
-                  { src: '/logos/f5.svg', alt: 'F5 Networks' },
-                  { src: '/logos/sophos.svg', alt: 'Sophos' },
-                  { src: '/logos/symantec.svg', alt: 'Symantec' },
-                  { src: '/logos/trendmicro.svg', alt: 'Trend Micro' },
-                ],
-              },
-            ].map((tier, ti) => (
-              <div key={ti} className="partners-tier">
-                <div className="tier-label">{tier.label}</div>
-                <div className="logo-grid">
-                  {tier.logos.map((logo, i) => (
-                    <div key={i} className="logo-card">
-                      <img src={logo.src} alt={logo.alt} style={{ width: '100%', maxWidth: '110px', height: '36px', objectFit: 'contain' }} />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className="partners-empty">
+            <p>파트너사 로고를 등록해주세요.</p>
           </div>
         </div>
 
