@@ -21,6 +21,8 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -75,6 +77,10 @@ button {
   color: var(--accent-color);
 }
 
+.logo .logo-it-red {
+  color: #e53935 !important;
+}
+
 .nav-links {
   display: flex;
   gap: 20px;
@@ -86,7 +92,7 @@ button {
 }
 
 .nav-links a {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: #333;
   transition: var(--transition);
@@ -490,9 +496,12 @@ button {
 }
 
 .product-card p {
-  font-size: 14px;
+  font-size: 16px;
   color: #777;
-  line-height: 1.6;
+  line-height: 1.8;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .product-specs {
@@ -503,9 +512,12 @@ button {
 }
 
 .spec-item {
-  font-size: 13px;
+  font-size: 15px;
   color: #666;
   margin-bottom: 5px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.7;
 }
 .business-page {
   padding-top: 120px;
@@ -1619,9 +1631,11 @@ button {
 }
 
 .talent-card p {
-  font-size: 14px;
+  font-size: 16px;
   color: #777;
   line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 /* 복리후생 */
@@ -1660,16 +1674,18 @@ button {
 }
 
 .benefit-card h4 {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--primary-color);
   margin-bottom: 6px;
 }
 
 .benefit-card p {
-  font-size: 13px;
+  font-size: 15px;
   color: #888;
   line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 /* 채용 프로세스 */
@@ -1706,7 +1722,7 @@ button {
 }
 
 .step-label {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   color: #fff;
   margin-left: 12px;
@@ -1777,7 +1793,7 @@ button {
 }
 
 .job-type {
-  font-size: 13px;
+  font-size: 15px;
   color: #888;
   font-weight: 500;
 }
@@ -1789,7 +1805,7 @@ button {
 }
 
 .job-meta {
-  font-size: 13px;
+  font-size: 15px;
   color: #666;
   background: #f4f4f4;
   padding: 4px 12px;
@@ -1797,7 +1813,7 @@ button {
 }
 
 .job-deadline {
-  font-size: 14px;
+  font-size: 16px;
   color: #aaa;
 }
 
@@ -1835,11 +1851,13 @@ button {
 }
 
 .job-detail ul li {
-  font-size: 14px;
+  font-size: 16px;
   color: #555;
   padding: 6px 0 6px 18px;
   position: relative;
   line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .job-detail ul li::before {

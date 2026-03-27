@@ -1060,7 +1060,7 @@ function App() {
     <div className="App">
       <header className="header">
         <div className="container">
-          <div className="logo"><a href="#home">CLIT <span>씨엘아이티(주)</span></a></div>
+          <div className="logo"><a href="#home">CL<span className="logo-it-red">IT</span> <span>씨엘아이티(주)</span></a></div>
           <nav className="nav-links">
             <div className="nav-item">
               <a href="#about">회사소개</a>
