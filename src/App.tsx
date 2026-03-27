@@ -35,6 +35,7 @@ const SEARCH_INDEX = [
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#home');
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -98,7 +99,10 @@ function App() {
     setTimeout(() => tryScroll(), 50);
   }, [currentPath]);
 
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+    setPrivacyConsent(false);
+  };
 
   const [isSending, setIsSending] = useState(false);
 
@@ -1167,7 +1171,38 @@ function App() {
                 <label>문의 상세 내용</label>
                 <textarea name="message" rows={5} placeholder="상세한 요구사항이나 현재 인프라 환경을 설명해주세요."></textarea>
               </div>
-              <button type="submit" className="submit-btn" disabled={isSending}>
+              <div className="privacy-notice">
+                <div className="privacy-notice-title">개인정보 수집 및 이용 안내</div>
+                <div className="privacy-notice-body">
+                  <p>씨엘아이티㈜는 「개인정보 보호법」 제15조에 따라 아래와 같이 개인정보를 수집·이용합니다.</p>
+                  <table className="privacy-table">
+                    <thead>
+                      <tr>
+                        <th>수집 항목</th>
+                        <th>수집·이용 목적</th>
+                        <th>보유 및 이용 기간</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>성명, 연락처, 회사명</td>
+                        <td>문의 접수 및 상담 응대</td>
+                        <td>문의 처리 완료 후 1년</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p className="privacy-rights">귀하는 개인정보 수집·이용에 대한 동의를 거부할 권리가 있으나, 동의 거부 시 상담 신청이 제한될 수 있습니다.</p>
+                </div>
+                <label className="privacy-consent-label">
+                  <input
+                    type="checkbox"
+                    checked={privacyConsent}
+                    onChange={e => setPrivacyConsent(e.target.checked)}
+                  />
+                  <span>개인정보 수집 및 이용에 <strong>동의합니다</strong> <span className="required">(필수)</span></span>
+                </label>
+              </div>
+              <button type="submit" className="submit-btn" disabled={isSending || !privacyConsent}>
                 {isSending ? '전송 중...' : '문의하기 제출'}
               </button>
             </form>

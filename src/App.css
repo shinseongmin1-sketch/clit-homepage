@@ -544,10 +544,103 @@ button {
   font-size: 16px;
   margin-top: 10px;
   transition: var(--transition);
+  cursor: pointer;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
   background-color: #0056b3;
+}
+
+.submit-btn:disabled {
+  background-color: #b0c4de;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* 개인정보 동의 */
+.privacy-notice {
+  background: #f7f9fc;
+  border: 1px solid #dde4ef;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 8px;
+}
+
+.privacy-notice-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+}
+
+.privacy-notice-body {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.privacy-notice-body p {
+  margin-bottom: 10px;
+}
+
+.privacy-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.privacy-table th,
+.privacy-table td {
+  border: 1px solid #dde4ef;
+  padding: 7px 10px;
+  text-align: left;
+}
+
+.privacy-table th {
+  background: #eef2f8;
+  font-weight: 700;
+  color: #1a2a4a;
+}
+
+.privacy-table td {
+  color: #444;
+}
+
+.privacy-rights {
+  font-size: 11px !important;
+  color: #888 !important;
+  margin-bottom: 0 !important;
+}
+
+.privacy-consent-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #333;
+  padding-top: 14px;
+  border-top: 1px solid #dde4ef;
+}
+
+.privacy-consent-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent-color);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.privacy-consent-label strong {
+  color: #1a73e8;
+}
+
+.required {
+  color: #e53935;
+  font-size: 11px;
 }
 
 .form-row {
