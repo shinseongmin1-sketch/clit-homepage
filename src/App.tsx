@@ -827,58 +827,53 @@ function App() {
       <div className="ceo-body">
         <div className="container ceo-inner">
 
-          <div className="ceo-quote-block">
-            <div className="ceo-quote-mark">"</div>
-            <p className="ceo-headline">
-              네트워크 통합, 서버, 보안, UC, Smart City, IoT, 통합관제 등을 아우르는<br />
-              초 전문 ICT기업, <strong>씨엘아이티㈜</strong> 입니다.
-            </p>
-          </div>
-
-          <div className="ceo-content-grid">
-            <div className="ceo-messages">
-              <div className="ceo-msg-item">
-                <div className="ceo-msg-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1a73e8" strokeWidth="2"/><path d="M8 12h8M12 8l4 4-4 4" stroke="#1a73e8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </div>
-                <p>
-                  네트워크/서버 분야의 경우 하드웨어 측면 뿐만 아니라, 컨설팅에서 네트워크 설계,
-                  시설 구축 및 유지보수, 교육까지 다양한 서비스를 아울러 제공하여
-                  다양한 부가가치를 창출해 나가고 있습니다.
-                </p>
-              </div>
-              <div className="ceo-msg-item">
-                <div className="ceo-msg-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1a73e8" strokeWidth="2"/><path d="M8 12h8M12 8l4 4-4 4" stroke="#1a73e8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </div>
-                <p>
-                  급변하는 IT 시장의 요구에 발 맞추어 정보보안, UC(IPT/VoIP), 비디오,
-                  무선 랜, 데이터 센터, 가상화 등 차세대 솔루션 분야로 영역을 확장하여
-                  보다 종합적인 IT 서비스를 제공하고 있습니다.
-                </p>
-              </div>
-              <div className="ceo-msg-item">
-                <div className="ceo-msg-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1a73e8" strokeWidth="2"/><path d="M8 12h8M12 8l4 4-4 4" stroke="#1a73e8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </div>
-                <p>
-                  신 성장 동력 사업으로 Smart City / IoT 솔루션을 개발 및 공급하여
-                  기존 사업과의 시너지 효과를 모색하고 있으며, 한국 IT 융합 기술의
-                  선진화를 위해 Global ICT 전문기업으로 나아가고 있습니다.
-                </p>
+          {/* 인사말 */}
+          <div className="ceo-main-layout">
+            <div className="ceo-msg-side ceo-msg-full">
+              <p className="ceo-greeting">안녕하십니까, 씨엘아이티㈜ 대표이사 최혁원입니다.</p>
+              <p>
+                저희 씨엘아이티㈜는 2014년 창립 이래, 네트워크 인프라 구축과 ICT 솔루션 제공을 핵심으로
+                고객의 디지털 환경을 설계하고 최적화하는데 전력을 다해왔습니다.
+                Cisco, Juniper, HP(Aruba) 등 글로벌 선도 브랜드와의 파트너십을 바탕으로
+                공공기관, 의료기관, 교육기관, 금융기관 등 다양한 산업군에서 신뢰받는 기술 파트너로 성장해 왔습니다.
+              </p>
+              <p>
+                오늘날 디지털 전환(Digital Transformation)은 선택이 아닌 필수가 되었습니다.
+                클라우드, AI, IoT, 스마트시티로 이어지는 거대한 기술 흐름 속에서
+                안정적이고 보안성 높은 네트워크 인프라는 모든 혁신의 근간입니다.
+                저희는 이 변화의 최전선에서 고객의 비즈니스 연속성을 지키고,
+                더 빠르고 안전한 연결 환경을 제공하기 위해 끊임없이 연구하고 준비하고 있습니다.
+              </p>
+              <p>
+                씨엘아이티㈜는 단순한 장비 공급을 넘어, 컨설팅·설계·구축·유지보수·교육에 이르는
+                토탈 ICT 서비스를 통해 고객과 함께 성장하는 파트너가 되겠습니다.
+                앞으로도 변함없는 기술력과 신뢰로 고객 여러분께 보답하겠습니다.
+              </p>
+              <p className="ceo-thanks">감사합니다.</p>
+              <div className="ceo-sig-block">
+                <span>씨엘아이티㈜ 대표이사</span>
+                <strong>최 혁 원</strong>
+                <div className="ceo-sig-underline" />
               </div>
             </div>
+          </div>
 
-            <div className="ceo-profile-card">
-              <div className="ceo-avatar">
-                <span>최</span>
-              </div>
-              <div className="ceo-sig-area">
-                <p className="ceo-company">씨엘아이티㈜</p>
-                <p className="ceo-title">대표이사</p>
-                <p className="ceo-name">최 혁 원</p>
-                <div className="ceo-sig-line" />
-              </div>
+          {/* 하단: 핵심 가치 3카드 */}
+          <div className="ceo-values">
+            <div className="ceo-value-card">
+              <div className="ceo-value-icon">🌐</div>
+              <h4>토탈 네트워크 서비스</h4>
+              <p>컨설팅에서 설계·구축·유지보수·교육까지 네트워크 전 영역의 부가가치를 제공합니다.</p>
+            </div>
+            <div className="ceo-value-card">
+              <div className="ceo-value-icon">🔒</div>
+              <h4>차세대 ICT 솔루션</h4>
+              <p>정보보안, UC, 무선랜, 데이터센터, 가상화 등 급변하는 IT 시장에 발맞춘 종합 서비스를 제공합니다.</p>
+            </div>
+            <div className="ceo-value-card">
+              <div className="ceo-value-icon">🚀</div>
+              <h4>글로벌 ICT 전문기업</h4>
+              <p>Smart City·IoT 솔루션으로 신성장 동력을 확보하고 한국 IT 융합 기술의 선진화를 이끌어 갑니다.</p>
             </div>
           </div>
 
