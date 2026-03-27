@@ -974,39 +974,53 @@ function App() {
         </div>
 
         <div className="history-body">
-          <div className="container">
+          <div className="history-container">
             <div className="timeline-section-label">
               <span className="timeline-section-line" />
               <span className="timeline-section-text">주요 실적</span>
               <span className="timeline-section-line" />
             </div>
             <div className="timeline">
-              {history.map((row, i) => (
-                <div key={i} className={`timeline-row${row.events.length === 0 ? ' timeline-row--empty' : ''}`}>
-                  <div className="timeline-year-col">
-                    <span className="timeline-year">{row.year}</span>
+              {history.map((row, i) => {
+                const side = i % 2 === 0 ? 'left' : 'right';
+                const isEmpty = row.events.length === 0;
+                const contentBlock = !isEmpty && (
+                  <div className="timeline-content">
+                    <ul className="timeline-events">
+                      {row.events.map((e, j) => (
+                        <li key={j}>
+                          <span className="event-text">{e.text}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <div className="timeline-node-col">
-                    <div className="timeline-node">
-                      <div className="node-inner"></div>
+                );
+                return (
+                  <div key={i} className={`timeline-row timeline-row--${side}${isEmpty ? ' timeline-row--empty' : ''}`}>
+                    <div className="timeline-side timeline-side--left">
+                      {side === 'left' && (
+                        <>
+                          <span className="timeline-year">{row.year}</span>
+                          {contentBlock}
+                        </>
+                      )}
+                    </div>
+                    <div className="timeline-node-col">
+                      <div className="timeline-node">
+                        <div className="node-inner"></div>
+                      </div>
+                    </div>
+                    <div className="timeline-side timeline-side--right">
+                      {side === 'right' && (
+                        <>
+                          <span className="timeline-year">{row.year}</span>
+                          {contentBlock}
+                        </>
+                      )}
                     </div>
                   </div>
-                  <div className="timeline-content">
-                    {row.events.length > 0 ? (
-                      <ul className="timeline-events">
-                        {row.events.map((e, j) => (
-                          <li key={j}>
-                            {e.date !== row.year && <span className="event-date">{e.date}</span>}
-                            <span className="event-text">{e.text}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p className="timeline-empty">—</p>
-                    )}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
