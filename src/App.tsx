@@ -11,6 +11,7 @@ const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
 const SEARCH_INDEX = [
   { label: '홈', hash: '#home', keywords: ['홈', '메인', '처음', 'home'] },
   { label: '회사소개', hash: '#about', keywords: ['회사소개', '회사', 'about', '씨엘아이티', 'clit'] },
+  { label: 'CEO Message', hash: '#ceo', keywords: ['ceo', '대표', '인사말', 'message', '최혁원'] },
   { label: '연혁', hash: '#history', keywords: ['연혁', '역사', '설립', 'history'] },
   { label: '오시는 길', hash: '#location', keywords: ['오시는길', '오시는 길', '위치', '지도', '주소', '찾아오는'] },
   { label: '비지니스', hash: '#business', keywords: ['비지니스', '사업', 'business'] },
@@ -18,6 +19,10 @@ const SEARCH_INDEX = [
   { label: '통합보안 구축', hash: '#business-security', keywords: ['보안', '통합보안', '방화벽', 'security', 'vpn'] },
   { label: '통합 유지보수', hash: '#business-maintenance', keywords: ['유지보수', '유지', '보수', 'maintenance', '장애'] },
   { label: '인프라 서비스', hash: '#business-infra', keywords: ['인프라', '서버', '스토리지', '클라우드', 'infra'] },
+  { label: 'UC (IPT/VoIP)', hash: '#business-uc', keywords: ['uc', 'ipt', 'voip', '전화', '인터넷전화', 'pbx'] },
+  { label: 'Technical Consulting', hash: '#business-consulting', keywords: ['컨설팅', 'consulting', '기술컨설팅'] },
+  { label: 'IoT', hash: '#business-iot', keywords: ['iot', '사물인터넷', '센서'] },
+  { label: 'Smart City', hash: '#business-smartcity', keywords: ['스마트시티', 'smartcity', '통합관제', 'cctv', '관제'] },
   { label: '제품소개', hash: '#products', keywords: ['제품소개', '제품', 'product'] },
   { label: '네트워크 장비', hash: '#products-network', keywords: ['네트워크장비', '스위치', 'cisco', 'juniper', 'aruba', 'hp'] },
   { label: '무선 AP', hash: '#products-wireless', keywords: ['무선', 'ap', 'wifi', 'wi-fi', '액세스포인트', 'access point', '무선ap'] },
@@ -411,6 +416,67 @@ function App() {
           </div>
           <div className="business-img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)', order: 1 }}></div>
         </div>
+
+        <div id="business-uc" className="business-item">
+          <div className="business-img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)' }}></div>
+          <div className="business-info">
+            <span className="tag">UC</span>
+            <h3>UC (IPT/VoIP)</h3>
+            <p>기존 PSTN 대비 업무 효율성과 경비 절감, 네트워크 효율적 운영이 강점인 인터넷 전화 시스템을 납품·구축합니다. 기업 통신 환경의 디지털 전환을 선도합니다.</p>
+            <div className="feature-list">
+              <div className="feature-item">IPT / VoIP 시스템 구축</div>
+              <div className="feature-item">기존 PSTN 대체 솔루션</div>
+              <div className="feature-item">PBX 교환기 납품·설치</div>
+              <div className="feature-item">통신 비용 절감 컨설팅</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="business-consulting" className="business-item">
+          <div className="business-info" style={{ order: 2 }}>
+            <span className="tag">CONSULTING</span>
+            <h3>Technical Consulting</h3>
+            <p>기업별 업무 환경·방식·서비스에 맞춘 맞춤형 IT 컨설팅을 제공합니다. 효율성·보안성·안정성을 최우선으로 고객과의 끊임없는 소통을 통해 최적의 솔루션을 설계합니다.</p>
+            <div className="feature-list">
+              <div className="feature-item">기업 맞춤 IT 환경 분석</div>
+              <div className="feature-item">최적 네트워크 설계</div>
+              <div className="feature-item">보안 취약점 진단</div>
+              <div className="feature-item">Pre-Sales 기술 지원</div>
+            </div>
+          </div>
+          <div className="business-img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)', order: 1 }}></div>
+        </div>
+
+        <div id="business-iot" className="business-item">
+          <div className="business-img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)' }}></div>
+          <div className="business-info">
+            <span className="tag">IoT</span>
+            <h3>IoT 솔루션</h3>
+            <p>기업의 요구에 가장 부합하는 IoT 서비스를 제공합니다. 온습도 모니터링, 환경 센서, 자산 추적 등 현장 맞춤형 IoT 인프라를 설계·구축합니다.</p>
+            <div className="feature-list">
+              <div className="feature-item">온습도 모니터링 시스템</div>
+              <div className="feature-item">IoT 센서 네트워크 구축</div>
+              <div className="feature-item">실시간 데이터 수집·분석</div>
+              <div className="feature-item">부산시 IoT 실증단지 협력</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="business-smartcity" className="business-item">
+          <div className="business-info" style={{ order: 2 }}>
+            <span className="tag">SMART CITY</span>
+            <h3>Smart City / 통합관제</h3>
+            <p>데이터 수집 센서와 서버 간 안정적인 실시간 통신망을 제공합니다. CCTV 통합관제센터 구축과 BIS 네트워크 등 스마트시티 핵심 인프라를 담당합니다.</p>
+            <div className="feature-list">
+              <div className="feature-item">CCTV 통합관제센터 구축</div>
+              <div className="feature-item">BIS 버스정보시스템 네트워크</div>
+              <div className="feature-item">실시간 통신망 설계</div>
+              <div className="feature-item">스마트시티 솔루션 개발·공급</div>
+            </div>
+          </div>
+          <div className="business-img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)', order: 1 }}></div>
+        </div>
+
       </div>
     </div>
   );
@@ -645,11 +711,11 @@ function App() {
               <div className="category-title">공공 · 공기업</div>
               <div className="client-card-grid">
                 {[
-                  { name: '경상남도청',         color: '#1a4a8a', logo: '/logos/clients/gyeongnam.svg' },
-                  { name: '부산도시공사',       color: '#1a5276', logo: '/logos/clients/busanurban.svg' },
-                  { name: '부산명장정수사업소', color: '#1f618d', logo: '/logos/clients/myeongjang.svg' },
+                  { name: '경상남도청',         color: '#1a4a8a', logo: '/logos/clients/gyeongnam.png' },
+                  { name: '부산도시공사',       color: '#1a5276', logo: '/logos/clients/busanurban.jpg' },
+                  { name: '부산명장정수사업소', color: '#1f618d', logo: '/logos/clients/myeongjang.png' },
                   { name: '게임물관리위원회',   color: '#6c3483', logo: '/logos/clients/grac.svg' },
-                  { name: '울산농수산물시장',   color: '#117a65', logo: '/logos/clients/ulsanmarket.svg' },
+                  { name: '울산농수산물시장',   color: '#117a65', logo: '/logos/clients/ulsanmarket.png' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
                     <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
@@ -662,8 +728,8 @@ function App() {
               <div className="category-title">금융</div>
               <div className="client-card-grid">
                 {[
-                  { name: '부산IBK저축은행',    color: '#1e6b9a', logo: '/logos/clients/ibk.svg' },
-                  { name: '부산은행 미음IT센터', color: '#154360', logo: '/logos/clients/busanbank.svg' },
+                  { name: '부산IBK저축은행',    color: '#1e6b9a', logo: '/logos/clients/ibk.png' },
+                  { name: '부산은행 미음IT센터', color: '#154360', logo: '/logos/clients/busanbank.png' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
                     <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
@@ -676,9 +742,9 @@ function App() {
               <div className="category-title">의료</div>
               <div className="client-card-grid">
                 {[
-                  { name: '메리놀병원',       color: '#922b21', logo: '/logos/clients/maryknoll.svg' },
-                  { name: '동래한서요양병원', color: '#a93226', logo: '/logos/clients/dongrae.svg' },
-                  { name: '한서병원',         color: '#c0392b', logo: '/logos/clients/hanseo.svg' },
+                  { name: '메리놀병원',       color: '#922b21', logo: '/logos/clients/maryknoll.png' },
+                  { name: '동래한서요양병원', color: '#a93226', logo: '/logos/clients/dongrae.jpg' },
+                  { name: '한서병원',         color: '#c0392b', logo: '/logos/clients/hanseo.png' },
                 ].map((c, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
                     <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
@@ -691,13 +757,13 @@ function App() {
               <div className="category-title">교육</div>
               <div className="client-card-grid">
                 {[
-                  { name: '대동대학교',         color: '#7d6608', logo: '/logos/clients/daedong.svg' },
-                  { name: '동의과학대학교',     color: '#6e2f06', logo: '/logos/clients/dongui.svg' },
-                  { name: '부산경상대학교',     color: '#1e8449', logo: '/logos/clients/busangyeongsung.svg' },
-                  { name: '부산과학기술대학교', color: '#1a5276', logo: '/logos/clients/busantech.svg' },
-                ].map((c, i) => (
+                  { name: '대동대학교',         color: '#7d6608', logo: '/logos/clients/daedong.png' },
+                  { name: '동의과학대학교',     color: '#6e2f06', logo: '/logos/clients/dongui.png' },
+                  { name: '부산경상대학교',     color: '#1e8449', logo: '/logos/clients/busangyeongsung.png', filter: 'brightness(0.6) contrast(1.2)' },
+                  { name: '부산과학기술대학교', color: '#1a5276', logo: '/logos/clients/busantech.png' },
+                ].map((c: { name: string; color: string; logo: string; filter?: string }, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                    <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain', filter: c.filter }} />
                   </div>
                 ))}
               </div>
@@ -708,11 +774,11 @@ function App() {
               <div className="client-card-grid">
                 {[
                   { name: '삼성전기 부산사업장', color: '#1c2833', logo: '/logos/clients/samsungelec.svg' },
-                  { name: '디오임플란트',        color: '#2471a3', logo: '/logos/clients/dio.svg' },
-                  { name: '울산 STM',            color: '#2e4057', logo: '/logos/clients/stm.svg' },
-                ].map((c, i) => (
+                  { name: '디오임플란트',        color: '#2471a3', logo: '/logos/clients/dio.svg', filter: 'brightness(0.5) contrast(1.3)' },
+                  { name: '울산 STM',            color: '#2e4057', logo: '/logos/clients/stm.png' },
+                ].map((c: { name: string; color: string; logo: string; filter?: string }, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
-                    <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                    <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain', filter: c.filter }} />
                   </div>
                 ))}
               </div>
@@ -738,6 +804,78 @@ function App() {
     </div>
   );
 
+  const CeoPage = () => (
+    <div className="ceo-page">
+      <div className="ceo-hero">
+        <div className="container">
+          <span className="ceo-hero-tag">CEO MESSAGE</span>
+          <h1>대표이사 인사말</h1>
+        </div>
+      </div>
+
+      <div className="ceo-body">
+        <div className="container ceo-inner">
+
+          <div className="ceo-quote-block">
+            <div className="ceo-quote-mark">"</div>
+            <p className="ceo-headline">
+              네트워크 통합, 서버, 보안, UC, Smart City, IoT, 통합관제 등을 아우르는<br />
+              초 전문 ICT기업, <strong>씨엘아이티㈜</strong> 입니다.
+            </p>
+          </div>
+
+          <div className="ceo-content-grid">
+            <div className="ceo-messages">
+              <div className="ceo-msg-item">
+                <div className="ceo-msg-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1a73e8" strokeWidth="2"/><path d="M8 12h8M12 8l4 4-4 4" stroke="#1a73e8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </div>
+                <p>
+                  네트워크/서버 분야의 경우 하드웨어 측면 뿐만 아니라, 컨설팅에서 네트워크 설계,
+                  시설 구축 및 유지보수, 교육까지 다양한 서비스를 아울러 제공하여
+                  다양한 부가가치를 창출해 나가고 있습니다.
+                </p>
+              </div>
+              <div className="ceo-msg-item">
+                <div className="ceo-msg-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1a73e8" strokeWidth="2"/><path d="M8 12h8M12 8l4 4-4 4" stroke="#1a73e8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </div>
+                <p>
+                  급변하는 IT 시장의 요구에 발 맞추어 정보보안, UC(IPT/VoIP), 비디오,
+                  무선 랜, 데이터 센터, 가상화 등 차세대 솔루션 분야로 영역을 확장하여
+                  보다 종합적인 IT 서비스를 제공하고 있습니다.
+                </p>
+              </div>
+              <div className="ceo-msg-item">
+                <div className="ceo-msg-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1a73e8" strokeWidth="2"/><path d="M8 12h8M12 8l4 4-4 4" stroke="#1a73e8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </div>
+                <p>
+                  신 성장 동력 사업으로 Smart City / IoT 솔루션을 개발 및 공급하여
+                  기존 사업과의 시너지 효과를 모색하고 있으며, 한국 IT 융합 기술의
+                  선진화를 위해 Global ICT 전문기업으로 나아가고 있습니다.
+                </p>
+              </div>
+            </div>
+
+            <div className="ceo-profile-card">
+              <div className="ceo-avatar">
+                <span>최</span>
+              </div>
+              <div className="ceo-sig-area">
+                <p className="ceo-company">씨엘아이티㈜</p>
+                <p className="ceo-title">대표이사</p>
+                <p className="ceo-name">최 혁 원</p>
+                <div className="ceo-sig-line" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+
   const HistoryPage = () => {
     const history = [
       {
@@ -747,10 +885,66 @@ function App() {
       { year: '2015', events: [] },
       { year: '2016', events: [] },
       { year: '2017', events: [] },
-      { year: '2018', events: [] },
-      { year: '2019', events: [] },
-      { year: '2020', events: [] },
-      { year: '2021', events: [] },
+      {
+        year: '2018',
+        events: [
+          { date: '2018', text: '부산소방본부 방화벽 및 L4 시스템 구축 사업' },
+          { date: '2018', text: '동의과학대학 보안시스템 납품 및 구축' },
+          { date: '2018', text: '창원세계사격선수권대회 온라인홍보 운영' },
+          { date: '2018', text: '부산신항만㈜ 온습도모니터링시스템 구축 사업' },
+          { date: '2018', text: '대동대학교 무선랜 구축 사업' },
+          { date: '2018', text: '부산광역시 청렴부산 소셜미디어 운영' },
+          { date: '2018', text: '싸이버로지텍 전산실 이전 구축 사업' },
+          { date: '2018', text: '인제대학교 의과대학 무선랜 구축' },
+        ],
+      },
+      {
+        year: '2019',
+        events: [
+          { date: '2019', text: '부산소방본부 방화벽 및 L4 시스템 구축 사업' },
+          { date: '2019', text: '동의과학대학 보안시스템 납품 및 구축' },
+          { date: '2019', text: '창원세계사격선수권대회 온라인홍보 운영' },
+          { date: '2019', text: '부산신항만㈜ 온습도모니터링시스템 구축 사업' },
+          { date: '2019', text: '대동대학교 무선랜 구축 사업' },
+          { date: '2019', text: '부산광역시 청렴부산 소셜미디어 운영' },
+          { date: '2019', text: '싸이버로지텍 전산실 이전 구축 사업' },
+          { date: '2019', text: '인제대학교 의과대학 무선랜 구축' },
+        ],
+      },
+      {
+        year: '2020',
+        events: [
+          { date: '2020', text: '동의과학대학 강의실 무선 구축 사업' },
+          { date: '2020', text: '한국우주항공 IPT 구축 사업' },
+          { date: '2020', text: '우즈베키스탄 국립아동병원 네트워크 구축 사업' },
+          { date: '2020', text: '만에너지솔루션 네트워크 구축 사업' },
+          { date: '2020', text: '군포시 버스정보시스템 네트워크 구축사업' },
+          { date: '2020', text: '국립수산품질관리원 네트워크 교체 사업' },
+          { date: '2020', text: '롯데시그니엘호텔 무선랜 구축 사업' },
+          { date: '2020', text: '경성대학교 가상화서버 구축 사업' },
+          { date: '2020', text: '부산과학기술대학교 LMS 시스템 구축 사업' },
+          { date: '2020', text: '창원시 블로그 소셜미디어 운영용역' },
+          { date: '2020', text: '울산 미즈병원 PACS 시스템 교체 사업' },
+          { date: '2020', text: '화신사이버대학 보안 시스템 구축 사업' },
+          { date: '2020', text: '울산여행 온라인 홍보단 운영용역' },
+          { date: '2020', text: '의령군청 IP 교환기 교체 사업' },
+          { date: '2020', text: '경상남도의회 블로그 및 SNS 운영용역' },
+          { date: '2020', text: '동의과학대학교 기숙사 무선랜 구축' },
+        ],
+      },
+      {
+        year: '2021',
+        events: [
+          { date: '2021. 01 ~ 02', text: '부산과학기술대 네트워크 구축' },
+          { date: '2021. 01 ~ 10', text: '카메룬 가루와국립병원 네트워크 및 IPT 납품 구축' },
+          { date: '2021. 03 ~ 12', text: '부산대 스마트캠퍼스 사업내 보안시스템 납품' },
+          { date: '2021. 06 ~ 08', text: '기술보증기금 무선네트워크 납품 및 설치' },
+          { date: '2021. 09 ~ 10', text: '르완다 국립병원 네트워크 납품' },
+          { date: '2021. 09 ~ 12', text: '아트하랑 홈페이지 및 SNS 홍보시스템 구축' },
+          { date: '2021. 10 ~ 11', text: '인제대 가상화시스템 납품 및 구축' },
+          { date: '2021. 10 ~ 12', text: '삼성전자 인재개발원 네트워크 모니터링시스템 구축' },
+        ],
+      },
       { year: '2022', events: [] },
       { year: '2023', events: [] },
       { year: '2024', events: [] },
@@ -768,29 +962,41 @@ function App() {
           </div>
         </div>
 
-        <div className="container history-body">
-          <div className="timeline">
-            {history.map((row, i) => (
-              <div key={i} className={`timeline-row ${i % 2 === 0 ? 'left' : 'right'}`}>
-                <div className="timeline-content">
-                  <div className="timeline-year">{row.year}</div>
-                  {row.events.length > 0 ? (
-                    <ul className="timeline-events">
-                      {row.events.map((e, j) => (
-                        <li key={j}>
-                          <span className="event-date">{e.date}</span>
-                          <span className="event-text">{e.text}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="timeline-empty">—</p>
-                  )}
+        <div className="history-body">
+          <div className="container">
+            <div className="timeline-section-label">
+              <span className="timeline-section-line" />
+              <span className="timeline-section-text">주요 실적</span>
+              <span className="timeline-section-line" />
+            </div>
+            <div className="timeline">
+              {history.map((row, i) => (
+                <div key={i} className={`timeline-row${row.events.length === 0 ? ' timeline-row--empty' : ''}`}>
+                  <div className="timeline-year-col">
+                    <span className="timeline-year">{row.year}</span>
+                  </div>
+                  <div className="timeline-node-col">
+                    <div className="timeline-node">
+                      <div className="node-inner"></div>
+                    </div>
+                  </div>
+                  <div className="timeline-content">
+                    {row.events.length > 0 ? (
+                      <ul className="timeline-events">
+                        {row.events.map((e, j) => (
+                          <li key={j}>
+                            {e.date !== row.year && <span className="event-date">{e.date}</span>}
+                            <span className="event-text">{e.text}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="timeline-empty">—</p>
+                    )}
+                  </div>
                 </div>
-                <div className="timeline-dot"></div>
-              </div>
-            ))}
-            <div className="timeline-line"></div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -835,6 +1041,7 @@ function App() {
               <a href="#about">회사소개</a>
               <div className="dropdown">
                 <a href="#about">회사소개</a>
+                <a href="#ceo">CEO Message</a>
                 <a href="#history">연혁</a>
                 <a href="#location">오시는 길</a>
               </div>
@@ -900,6 +1107,7 @@ function App() {
 
       {/* 라우팅 처리 */}
       {currentPath === '#location' ? <MapPage /> :
+       currentPath === '#ceo' ? <CeoPage /> :
        currentPath === '#history' ? <HistoryPage /> :
        currentPath.startsWith('#recruitment') ? <RecruitmentPage /> :
        currentPath.startsWith('#business') ? <BusinessPage /> :
