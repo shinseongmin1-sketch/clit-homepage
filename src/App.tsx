@@ -202,20 +202,56 @@ function App() {
             <p className="achievements-desc">2023년부터 2025년까지 씨엘아이티㈜가 수행한 주요 프로젝트입니다.</p>
           </div>
           <div className="achievements-grid">
-            {[
-              { year: '2023', items: ['실적 내용을 입력해주세요'] },
-              { year: '2024', items: ['실적 내용을 입력해주세요'] },
-              { year: '2025', items: ['실적 내용을 입력해주세요'] },
-            ].map(({ year, items }) => (
+            {([
+              {
+                year: '2023',
+                count: 8,
+                items: [
+                  { text: '해군작전사령부 라우터 교체 사업', tag: '공공·국방', featured: true },
+                  { text: '메리놀병원 무선랜 납품 및 설치 사업', tag: '의료', featured: false },
+                  { text: '군포시 BIS 네트워크 스위치 납품 사업', tag: '공공', featured: false },
+                  { text: '인제대학교 스토리지 구축 사업', tag: '교육', featured: false },
+                  { text: '대동대학교 무선랜 구축 사업', tag: '교육', featured: false },
+                  { text: '고성군 유동인구 분석시스템 구축', tag: 'IoT·스마트', featured: false },
+                ],
+              },
+              {
+                year: '2024',
+                count: 8,
+                items: [
+                  { text: '삼성SDI 무선랜 구축 기술지원 사업', tag: '대기업', featured: true },
+                  { text: '롯데시그니엘호텔 무선랜 구축 사업', tag: '대기업', featured: true },
+                  { text: '게임물관리위원회 무선랜 구축 사업', tag: '공공', featured: false },
+                  { text: '경성대학교 가상화서버 구축 사업', tag: '교육', featured: false },
+                  { text: '경상대학교 무선랜 구축 사업', tag: '교육', featured: false },
+                  { text: '인제대학교 의학교육정보지원 NW 구축', tag: '교육', featured: false },
+                ],
+              },
+              {
+                year: '2025',
+                count: null,
+                items: [],
+              },
+            ] as { year: string; count: number | null; items: { text: string; tag: string; featured: boolean }[] }[]).map(({ year, count, items }) => (
               <div className="achievement-year-card" key={year}>
-                <div className="achievement-year-label">{year}</div>
-                <ul className="achievement-list">
-                  {items.map((item, i) => (
-                    <li className={`achievement-item${item === '실적 내용을 입력해주세요' ? ' achievement-placeholder' : ''}`} key={i}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <div className="achievement-year-header">
+                  <span className="achievement-year-label">{year}</span>
+                  {count && <span className="achievement-year-count">{count}건 수행</span>}
+                </div>
+                {items.length > 0 ? (
+                  <ul className="achievement-list">
+                    {items.map((item, i) => (
+                      <li className={`achievement-item${item.featured ? ' achievement-featured' : ''}`} key={i}>
+                        <span className="achievement-tag">{item.tag}</span>
+                        <span className="achievement-text">{item.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="achievement-coming">
+                    <span>진행 중</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
