@@ -703,8 +703,23 @@ function App() {
             <h2>협력 파트너사</h2>
             <p>씨엘아이티(주)는 세계 최고 수준의 네트워크·보안 기업들과 공식 파트너십을 맺고 검증된 솔루션을 제공합니다.</p>
           </div>
-          <div className="partners-empty">
-            <p>파트너사 로고를 등록해주세요.</p>
+          <div className="partner-card-grid">
+            {[
+              { name: 'HP',           logo: '/logos/partners/hp.svg' },
+              { name: '에스넷시스템', logo: '/logos/partners/esnet.png' },
+              { name: 'CISCO',        logo: '/logos/partners/cisco.svg' },
+              { name: 'SK텔레콤',     logo: '/logos/partners/skt.svg' },
+              { name: '삼성',         logo: '/logos/partners/samsung.svg' },
+              { name: '주니퍼',       logo: '/logos/partners/juniper.svg' },
+              { name: 'A10',          logo: '/logos/partners/a10.png' },
+              { name: 'WINS',         logo: '/logos/partners/wins.png' },
+              { name: 'F5',           logo: '/logos/partners/f5.svg' },
+              { name: 'INNOOEP',      logo: '/logos/partners/innooep.svg', bg: '#1B2A4A' },
+            ].map((p, i) => (
+              <div key={i} className="partner-card" style={p.bg ? { background: p.bg } : {}}>
+                <img src={p.logo} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              </div>
+            ))}
           </div>
         </div>
 
@@ -791,6 +806,19 @@ function App() {
                 ].map((c: { name: string; color: string; logo: string; filter?: string }, i) => (
                   <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
                     <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain', filter: c.filter }} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="client-category">
+              <div className="category-title">통신</div>
+              <div className="client-card-grid">
+                {[
+                  { name: 'SK브로드밴드', color: '#e8001c', logo: '/logos/clients/skbroadband.svg' },
+                ].map((c, i) => (
+                  <div key={i} className="client-card" style={{ '--card-color': c.color } as React.CSSProperties}>
+                    <img src={c.logo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                   </div>
                 ))}
               </div>
