@@ -42,6 +42,7 @@ function App() {
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#home');
   const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const searchRef = useRef<HTMLDivElement>(null);
 
@@ -1082,6 +1083,41 @@ function App() {
 
   return (
     <div className="App">
+      {/* 모바일 메뉴 오버레이 */}
+      <div className={`mobile-overlay${mobileMenuOpen ? ' active' : ''}`} onClick={() => setMobileMenuOpen(false)} />
+      <nav className={`mobile-nav${mobileMenuOpen ? ' open' : ''}`}>
+        <div className="mobile-nav-header">
+          <img src="/logos/clit-logo.png" alt="CLIT" style={{ height: '36px' }} />
+          <button className="mobile-nav-close" onClick={() => setMobileMenuOpen(false)}>✕</button>
+        </div>
+        <div className="mobile-nav-body">
+          <div className="mobile-nav-group">
+            <span className="mobile-nav-label">회사소개</span>
+            <a href="#about" onClick={() => setMobileMenuOpen(false)}>회사소개</a>
+            <a href="#ceo" onClick={() => setMobileMenuOpen(false)}>CEO Message</a>
+            <a href="#history" onClick={() => setMobileMenuOpen(false)}>연혁</a>
+            <a href="#location" onClick={() => setMobileMenuOpen(false)}>오시는 길</a>
+          </div>
+          <div className="mobile-nav-group single">
+            <a href="#business" onClick={() => setMobileMenuOpen(false)}>비지니스</a>
+          </div>
+          <div className="mobile-nav-group single">
+            <a href="#products" onClick={() => setMobileMenuOpen(false)}>제품소개</a>
+          </div>
+          <div className="mobile-nav-group">
+            <span className="mobile-nav-label">파트너·고객사</span>
+            <a href="#partners-1" onClick={() => setMobileMenuOpen(false)}>파트너</a>
+            <a href="#partners-2" onClick={() => setMobileMenuOpen(false)}>고객사</a>
+          </div>
+          <div className="mobile-nav-group">
+            <span className="mobile-nav-label">채용정보</span>
+            <a href="#recruitment-jobs" onClick={() => setMobileMenuOpen(false)}>채용공고</a>
+          </div>
+          <div className="mobile-nav-group single">
+            <a href="#contact" onClick={() => setMobileMenuOpen(false)}>고객문의</a>
+          </div>
+        </div>
+      </nav>
       <header className="header">
         <div className="container">
           <div className="logo"><a href="#home"><img src="/logos/clit-logo.png" alt="CLIT" className="logo-img" /><span className="logo-company">씨엘아이티(주)</span></a></div>
@@ -1118,6 +1154,13 @@ function App() {
               <a href="#contact">고객문의</a>
             </div>
           </nav>
+          <button
+            className={`hamburger${mobileMenuOpen ? ' open' : ''}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="메뉴"
+          >
+            <span /><span /><span />
+          </button>
           <div className="search-wrap" ref={searchRef}>
             {searchOpen ? (
               <div className="search-box">
