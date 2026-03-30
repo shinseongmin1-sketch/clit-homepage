@@ -67,18 +67,30 @@ button {
 }
 
 .logo {
-  font-size: 28px;
-  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-company {
+  font-size: 14px;
+  font-weight: 700;
   color: var(--primary-color);
-  letter-spacing: -1px;
-}
-
-.logo span {
-  color: var(--accent-color);
-}
-
-.logo .logo-it-red {
-  color: #e53935 !important;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -102,22 +114,55 @@ button {
   color: var(--accent-color);
 }
 
+/* Nav Arrow Indicator */
+.nav-arrow {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+  vertical-align: middle;
+  opacity: 0.7;
+}
+
+.has-dropdown:hover .nav-arrow {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.has-dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
 /* Dropdown Menu */
 .dropdown {
   position: absolute;
-  top: 80px;
+  top: calc(100% - 4px);
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  background-color: var(--white);
-  min-width: 180px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  transform: translateX(-50%) translateY(8px);
+  background: #ffffff;
+  min-width: 170px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
+  border-radius: 12px;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
-  padding: 10px 0;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px 0;
   z-index: 1001;
-  border-top: 3px solid var(--accent-color);
+  border-top: none;
+  overflow: hidden;
+}
+
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 12px 12px 0 0;
 }
 
 .nav-item:hover .dropdown {
@@ -127,17 +172,36 @@ button {
 }
 
 .dropdown a {
-  display: block;
-  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  padding: 11px 20px;
   font-size: 14px;
-  color: #666;
+  color: #444;
   font-weight: 500;
-  transition: var(--transition);
+  transition: all 0.18s ease;
+  gap: 8px;
+  position: relative;
+}
+
+.dropdown a::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  flex-shrink: 0;
 }
 
 .dropdown a:hover {
-  background-color: #f8f9fa;
-  color: var(--accent-color);
+  background: linear-gradient(90deg, rgba(58,102,179,0.06), transparent);
+  color: var(--primary-color);
+  padding-left: 24px;
+}
+
+.dropdown a:hover::before {
+  opacity: 1;
 }
 
 /* Hero Section */

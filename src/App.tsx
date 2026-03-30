@@ -1084,10 +1084,10 @@ function App() {
     <div className="App">
       <header className="header">
         <div className="container">
-          <div className="logo"><a href="#home">CL<span className="logo-it-red">IT</span> <span>씨엘아이티(주)</span></a></div>
+          <div className="logo"><a href="#home"><img src="/logos/clit-logo.png" alt="CLIT" className="logo-img" /><span className="logo-company">씨엘아이티(주)</span></a></div>
           <nav className="nav-links">
-            <div className="nav-item">
-              <a href="#about">회사소개</a>
+            <div className="nav-item has-dropdown">
+              <a href="#about">회사소개<span className="nav-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg></span></a>
               <div className="dropdown">
                 <a href="#about">회사소개</a>
                 <a href="#ceo">CEO Message</a>
@@ -1101,15 +1101,15 @@ function App() {
             <div className="nav-item">
               <a href="#products">제품소개</a>
             </div>
-            <div className="nav-item">
-              <a href="#partners">파트너·고객사</a>
+            <div className="nav-item has-dropdown">
+              <a href="#partners">파트너·고객사<span className="nav-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg></span></a>
               <div className="dropdown">
                 <a href="#partners-1">파트너</a>
                 <a href="#partners-2">고객사</a>
               </div>
             </div>
-            <div className="nav-item">
-              <a href="#recruitment">채용정보</a>
+            <div className="nav-item has-dropdown">
+              <a href="#recruitment">채용정보<span className="nav-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg></span></a>
               <div className="dropdown">
                 <a href="#recruitment-jobs">채용공고</a>
               </div>
